@@ -18,21 +18,22 @@ namespace lab1
             { 0.25, 1.02 }
         };
 
-        public static Dictionary<double, double> Pearson50Quantiles = new Dictionary<double, double>()
+        public static Dictionary<double, double> Pearson49Quantiles = new Dictionary<double, double>()
         {
-            { 0.01, 76.154 },
-            { 0.025, 71.42 },
-            { 0.05, 67.50 },
-            { 0.10, 63.167 },
-            { 0.20, 58.164 },
-            { 0.30, 54.723 }
+            { 0.01, 74.919 },
+            { 0.025, 70.222 },
+            { 0.05, 66.339 },
+            { 0.10, 62.038 },
+            { 0.20, 57.059 },
+            { 0.30, 53.67 }
         };
 
         public const int K = 64;
         public const uint M = 2147483648; //2^31
-        public const int beta = 79507;
-        public const double epsilon = 0.05;
-        public const int n = 10;
+        public const int Beta = 79507;
+        public const double Epsilon = 0.05;
+        public const int N = 1000;
+        public const int IntervalsAmount = 50;
 
         delegate double DistributionFunction(double x);
 
@@ -44,9 +45,9 @@ namespace lab1
         {
 
             Console.WriteLine("--------------------Multiplicative congruential method--------------------");
-            DisplayResults(GetMultiplicativeCongruentialSequence(n));
+            DisplayResults(GetMultiplicativeCongruentialSequence(N));
             Console.WriteLine("--------------------MacLaren-Marsaglia method--------------------");
-            DisplayResults(GetMacLarenMarsagliaSequence(n));
+            DisplayResults(GetMacLarenMarsagliaSequence(N));
             Console.ReadKey();
         }
 
@@ -61,10 +62,10 @@ namespace lab1
         private static List<double> GetMultiplicativeCongruentialSequence(int amount)
         {
             var multiplicativeList = new List<double>();
-            multiplicativeList.Add((double)beta / M);
+            multiplicativeList.Add((double)Beta / M);
             for (int i = 1; i < amount; i++)
             {
-                long x = (long)(beta * multiplicativeList[i - 1] * M);
+                long x = (long)(Beta * multiplicativeList[i - 1] * M);
                 double value = (double)(x % M) / M;
                 multiplicativeList.Add(value);
             }
@@ -102,43 +103,61 @@ namespace lab1
 
         private static void CheckKolmogorovCriteria(List<double> list, DistributionFunction function)
         {
-            var empiricalDistributionFunction = GetEmpiricalDistributionFunction(function, list.Count).ToList();
+            var distributionFunctionValues = GetDistributionFunctionValues(function, list.Count).ToList();
             double maxDiff = 0;
             for (int i = 0; i < list.Count; i++)
             {
-                if (Math.Abs(list[i] - empiricalDistributionFunction[i]) > maxDiff)
+                if (Math.Abs(list[i] - distributionFunctionValues[i]) > maxDiff)
                 {
-                    maxDiff = Math.Abs(list[i] - empiricalDistributionFunction[i]);
+                    maxDiff = Math.Abs(list[i] - distributionFunctionValues[i]);
                 }
-                if (Math.Abs(list[i] - empiricalDistributionFunction[i + 1]) > maxDiff)
+                if (Math.Abs(list[i] - distributionFunctionValues[i + 1]) > maxDiff)
                 {
-                    maxDiff = Math.Abs(list[i] - empiricalDistributionFunction[i + 1]);
+                    maxDiff = Math.Abs(list[i] - distributionFunctionValues[i + 1]);
                 }
             }
 
             var value = maxDiff * Math.Sqrt(list.Count);
-            Console.WriteLine($"Kolmogorov criterion: {DisplayCriteriaResults(value, KolmogorovQuantiles[epsilon])}");
+            Console.WriteLine($"Kolmogorov criterion: {DisplayCriteriaResults(value, KolmogorovQuantiles[Epsilon])}");
         }
 
         private static void CheckPearsonCriteria(List<double> list, DistributionFunction function)
         {
-            var empiricalDistributionFunction = GetEmpiricalDistributionFunction(function, list.Count).ToList();
-            var diff = new List<double>();
-            for (int i = 0; i < list.Count; i++)
+            var distributionFunctionValues = GetDistributionFunctionValues(function, IntervalsAmount).ToList();
+            var probabilityFunctionValues = GetProbabilityFunctionValues(distributionFunctionValues).ToList();
+            var intervals = GetAmountByIntervals(list).ToList();
+            double value = 0;
+            for (int i = 0; i < IntervalsAmount; i++)
             {
-                diff.Add(Math.Abs(list[i] - empiricalDistributionFunction[i]));
+                value += Math.Pow(intervals[i] - N * probabilityFunctionValues[i], 2) / (N * probabilityFunctionValues[i]);
             }
 
-            double theor = 1.0 / list.Count;
-            var value = diff.Sum(x => Math.Pow(x - theor, 2));
-            Console.WriteLine($"Pearson criterion: {DisplayCriteriaResults(value, Pearson50Quantiles[epsilon])}");
+            Console.WriteLine($"Pearson criterion: {DisplayCriteriaResults(value, Pearson49Quantiles[Epsilon])}");
         }
 
-        private static IEnumerable<double> GetEmpiricalDistributionFunction(DistributionFunction function, int amount)
+        //For Puasson: 0, 0.220, 0.553, 0.805, 0.932, 0.980, 0.995, 1
+        private static IEnumerable<double> GetDistributionFunctionValues(DistributionFunction function, int amount)
         {
             for (int i = 0; i < amount + 1; i++)
             {
                 yield return function((double)i / amount);
+            }
+        }
+
+        //For Puasson: 0.220, 0.333, 0.252, 0.127, 0.048, 0.015, 0.005
+        private static IEnumerable<double> GetProbabilityFunctionValues(IEnumerable<double> distributionFunctionValues)
+        {
+            for (int i = 1; i < distributionFunctionValues.Count(); i++)
+            {
+                yield return distributionFunctionValues.ElementAt(i) - distributionFunctionValues.ElementAt(i - 1);
+            }
+        }
+
+        private static IEnumerable<int> GetAmountByIntervals(List<double> list)
+        {
+            for (int i = 0; i < IntervalsAmount; i++)
+            {
+                yield return list.Count(x => x > (double)i / IntervalsAmount && x < (double)(i + 1) / IntervalsAmount);
             }
         }
 
