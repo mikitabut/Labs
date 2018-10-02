@@ -43,10 +43,10 @@ namespace lab1
 
         static void Main(string[] args)
         {
-
+            Console.WriteLine($"K={K}, M={M}, Beta={Beta}, Epsilon={Epsilon}, N={N}, IntervalsAmount={IntervalsAmount}" + Environment.NewLine);
             Console.WriteLine("--------------------Multiplicative congruential method--------------------");
             DisplayResults(GetMultiplicativeCongruentialSequence(N));
-            Console.WriteLine("--------------------MacLaren-Marsaglia method--------------------");
+            Console.WriteLine(Environment.NewLine + "--------------------MacLaren-Marsaglia method--------------------");
             DisplayResults(GetMacLarenMarsagliaSequence(N));
             Console.ReadKey();
         }
