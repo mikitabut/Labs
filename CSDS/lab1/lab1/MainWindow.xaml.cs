@@ -118,11 +118,11 @@ namespace lab1
         {
             if (c >= A_IndexInASCII && c <= Z_IndexInASCII)
             {
-                return (char)(A_IndexInASCII + ((c - A_IndexInASCII + shift) % LettersInAlphabet));
+                return (char)(A_IndexInASCII + ((c - A_IndexInASCII + shift + LettersInAlphabet) % LettersInAlphabet));
             }
             else if (c >= a_IndexInASCII && c <= z_IndexInASCII)
             {
-                return (char)(a_IndexInASCII + ((c - a_IndexInASCII + shift) % LettersInAlphabet));
+                return (char)(a_IndexInASCII + ((c - a_IndexInASCII + shift + LettersInAlphabet) % LettersInAlphabet));
             }
             else
             {
