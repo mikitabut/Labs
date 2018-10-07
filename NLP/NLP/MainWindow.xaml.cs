@@ -118,6 +118,14 @@ namespace NLP
             }
         }
 
+        private void AnalyzeText_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var word in WordDictionary)
+            {
+                Files.ForEach(x => ReplaceWord(x, word.Name, word.GetAnalyzedWord()));
+            }
+        }
+
         #endregion
 
         #region Supporting functions
