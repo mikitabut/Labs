@@ -7,12 +7,7 @@ namespace NLP
     /// </summary>
     public partial class WordEditingModalWindow : Window
     {
-        public WordEditingModalWindow(string oldWord)
-        {
-            InitializeComponent();
-            OldWordTextBlock.Text = oldWord;
-            NewWordTextBox.Text = oldWord;
-        }
+        public WordEditingModalWindow() => InitializeComponent();
 
         private void OK_Click(object sender, RoutedEventArgs e) => DialogResult = true;
     }

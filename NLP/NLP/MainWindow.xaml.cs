@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -19,12 +20,16 @@ namespace NLP
 
         public List<string> Files { get; set; } = new List<string>();
 
+        public SortingType CurrentSortingType { get; set; } = SortingType.None;
+
         public MainWindow()
         {
             InitializeComponent();
             WordDictionary = new ObservableCollection<Word>(db.Words);
             DataContext = this;
         }
+
+        #region Events
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
@@ -37,17 +42,16 @@ namespace NLP
                     byte[] array = new byte[fstream.Length];
                     fstream.Read(array, 0, array.Length);
                     string text = Encoding.UTF8.GetString(array);
-                    string[] split = text.ToLower().Split(new char[] { ' ', '.', ',', ':', ';', '\t', '\n', '\r', '?', '!',
-                        '"', '\'', '—', '[', ']', '(', ')', '%', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'});
                     int counter = 0;
-                    foreach (var name in split)
+                    IEnumerable<string> words = Regex.Matches(text, "[a-zA-Z-—]+('(s|d|ve|ll))?").Cast<Match>().Select(x => x.Value);
+                    foreach (var word in words)
                     {
-                        if (!String.IsNullOrWhiteSpace(name))
+                        if (!String.IsNullOrWhiteSpace(word))
                         {
-                            var currentWord = WordDictionary.FirstOrDefault(x => x.Name == name);
+                            var currentWord = WordDictionary.FirstOrDefault(x => x.Name == word);
                             if (currentWord == null)
                             {
-                                WordDictionary.Add(new Word(name, 1));
+                                WordDictionary.Add(new Word(word, 1));
                             }
                             else
                             {
@@ -56,7 +60,7 @@ namespace NLP
                         }
 
                         counter++;
-                        ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / split.Length, DispatcherPriority.Background);
+                        ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / words.Count(), DispatcherPriority.Background);
                     }
 
                     ClearWordsDatabase();
@@ -67,27 +71,6 @@ namespace NLP
             }
         }
 
-        private void AmountAsc_Click(object sender, RoutedEventArgs e) =>
-            UpdateWordDictionary(WordDictionary.OrderBy(x => x.Amount).ToList());
-
-        private void AmountDesc_Click(object sender, RoutedEventArgs e) =>
-            UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Amount).ToList());
-
-        private void NameAsc_Click(object sender, RoutedEventArgs e) =>
-            UpdateWordDictionary(WordDictionary.OrderBy(x => x.Name).ToList());
-
-        private void NameDesc_Click(object sender, RoutedEventArgs e) => 
-            UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Name).ToList());
-
-        private void UpdateWordDictionary(List<Word> list)
-        {
-            WordDictionary.Clear();
-            foreach (var word in list)
-            {
-                WordDictionary.Add(word);
-            }
-        }
-
         private void ClearDatabase_Click(object sender, RoutedEventArgs e)
         {
             WordDictionary.Clear();
@@ -95,18 +78,58 @@ namespace NLP
             StatusLine.Text = "Table has been cleared.";
         }
 
-        private void ClearWordsDatabase() => db.Database.ExecuteSqlCommand("DELETE FROM [Words]");
-
-        private void WordDictionaryListView_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseEventArgs e)
+        private void NameTableHeader_Click(object sender, RoutedEventArgs e)
         {
-            var word = (sender as ListView).SelectedItem as Word;
-            var modalWindow = new WordEditingModalWindow(word.Name);
+            if (CurrentSortingType == SortingType.NameAscending)
+            {
+                CurrentSortingType = SortingType.NameDescending;
+                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Name).ToList());
+            }
+            else
+            {
+                CurrentSortingType = SortingType.NameAscending;
+                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Name).ToList());
+            }
+        }
+
+        private void AmountTableHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (CurrentSortingType == SortingType.AmountDescending)
+            {
+                CurrentSortingType = SortingType.AmountAscending;
+                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Amount).ToList());
+            }
+            else
+            {
+                CurrentSortingType = SortingType.AmountDescending;
+                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Amount).ToList());
+            }
+        }
+
+        private void UpdateWord_Click(object sender, RoutedEventArgs e)
+        {
+            var modalWindow = new WordEditingModalWindow();
             if (modalWindow.ShowDialog() == true)
             {
-                if (modalWindow.NewWordTextBox.Text != word.Name)
+                if (modalWindow.NewWordTextBox.Text != String.Empty && modalWindow.OldWordTextBox.Text != String.Empty)
                 {
-                    Files.ForEach(x => ReplaceWord(x, word.Name, modalWindow.NewWordTextBox.Text));
+                    Files.ForEach(x => ReplaceWord(x, modalWindow.OldWordTextBox.Text, modalWindow.NewWordTextBox.Text));
                 }
+            }
+        }
+
+        #endregion
+
+        #region Supporting functions
+
+        private void ClearWordsDatabase() => db.Database.ExecuteSqlCommand("DELETE FROM [Words]");
+
+        private void UpdateWordDictionary(List<Word> list)
+        {
+            WordDictionary.Clear();
+            foreach (var word in list)
+            {
+                WordDictionary.Add(word);
             }
         }
 
@@ -123,5 +146,16 @@ namespace NLP
             text = text.Replace(oldWord, newWord);
             File.WriteAllText(filename, text);
         }
+
+        #endregion
+    }
+
+    public enum SortingType
+    {
+        NameAscending,
+        NameDescending,
+        AmountAscending,
+        AmountDescending,
+        None
     }
 }

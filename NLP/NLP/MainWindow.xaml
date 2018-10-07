@@ -14,7 +14,6 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="30"/>
@@ -22,23 +21,23 @@
         <Menu Grid.Row="0" Grid.ColumnSpan="4">
             <MenuItem Name="OpenFile" Header="Open file" Click="OpenFile_Click"></MenuItem>
             <MenuItem Name="ClearDatabase" Header="Clear database" Click="ClearDatabase_Click"></MenuItem>
+            <MenuItem Name="UpdateWord" Header="Update Word" Click="UpdateWord_Click"></MenuItem>
         </Menu>
-        <Button Name="NameAsc" Content="Name asc" Click="NameAsc_Click" Grid.Row="1" Grid.Column="0"></Button>
-        <Button Name="NameDesc" Content="Name desc" Click="NameDesc_Click" Grid.Row="1" Grid.Column="1"></Button>
-        <Button Name="AmountAsc" Content="Amount asc" Click="AmountAsc_Click" Grid.Row="1" Grid.Column="2"></Button>
-        <Button Name="AmountDesc" Content="Amount desc" Click="AmountDesc_Click" Grid.Row="1" Grid.Column="3"></Button>
-        <ListView Name="WordDictionaryListView" Grid.Row="2" Grid.ColumnSpan="4" 
-                  PreviewMouseLeftButtonUp="WordDictionaryListView_PreviewMouseLeftButtonUp"
+        <ListView Name="WordDictionaryListView" Grid.Row="1" Grid.ColumnSpan="4" 
                   ItemsSource="{Binding Path=WordDictionary, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="296" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Amount" Width="296" DisplayMemberBinding="{Binding Amount}"/>
+                    <GridViewColumn Width="296" DisplayMemberBinding="{Binding Name}">
+                        <GridViewColumnHeader Name="NameTableHeader" Content="Name" Click="NameTableHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="296" DisplayMemberBinding="{Binding Amount}">
+                        <GridViewColumnHeader Name="AmountTableHeader" Content="Amount" Click="AmountTableHeader_Click"/>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ProgressBar Name="ProgressBar" Grid.Row="3" Grid.ColumnSpan="4" Minimum="0" Maximum="100"></ProgressBar>
-        <TextBlock Name="StatusLine" Grid.Row="4" Grid.ColumnSpan="4" VerticalAlignment="Center" Padding="5"></TextBlock>
+        <ProgressBar Name="ProgressBar" Grid.Row="2" Grid.ColumnSpan="4" Minimum="0" Maximum="100"></ProgressBar>
+        <TextBlock Name="StatusLine" Grid.Row="3" Grid.ColumnSpan="4" VerticalAlignment="Center" Padding="5"></TextBlock>
     </Grid>
 </Window>
     

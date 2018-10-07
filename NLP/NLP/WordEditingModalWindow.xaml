@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,8,0" HorizontalAlignment="Right"
                    VerticalAlignment="Top">Old word:</TextBlock>
-        <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Name="OldWordTextBlock"></TextBlock>
+        <TextBox Grid.Row="0" Grid.Column="1" Name="OldWordTextBox"></TextBox>
         <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,8,0" HorizontalAlignment="Right" 
                    VerticalAlignment="Center">New word:</TextBlock>
         <TextBox Grid.Row="1" Grid.Column="1" Name="NewWordTextBox"></TextBox>
