@@ -43,7 +43,7 @@ namespace NLP
                     fstream.Read(array, 0, array.Length);
                     string text = Encoding.UTF8.GetString(array);
                     int counter = 0;
-                    IEnumerable<string> words = Regex.Matches(text, "[a-zA-Z-—]+('(s|d|ve|ll))?").Cast<Match>().Select(x => x.Value);
+                    IEnumerable<string> words = Regex.Matches(text, "(?<word>[a-zA-Z-—]+('(s|d|ve|ll))?)(<[a-zA-Z]+>)?").Cast<Match>().Select(x => x.Groups["word"].Value);
                     foreach (var word in words)
                     {
                         if (!String.IsNullOrWhiteSpace(word))
@@ -122,7 +122,7 @@ namespace NLP
         {
             foreach (var word in WordDictionary)
             {
-                Files.ForEach(x => ReplaceWord(x, word.Name, word.GetAnalyzedWord()));
+                Files.ForEach(x => ReplaceTaggedWord(x, word.Name, word.GetAnalyzedWord()));
             }
         }
 
@@ -152,6 +152,33 @@ namespace NLP
             }
 
             text = text.Replace(oldWord, newWord);
+            File.WriteAllText(filename, text);
+        }
+
+        private void ReplaceTaggedWord(string filename, string oldWord, string newWord)
+        {
+            string text;
+            using (FileStream fstream = File.OpenRead(filename))
+            {
+                byte[] array = new byte[fstream.Length];
+                fstream.Read(array, 0, array.Length);
+                text = Encoding.UTF8.GetString(array);
+            }
+
+            text = text.Replace($" {oldWord} ", $" {newWord} ");
+            text = text.Replace($" {oldWord}.", $" {newWord}.");
+            text = text.Replace($" {oldWord},", $" {newWord},");
+            text = text.Replace($" {oldWord};", $" {newWord};");
+            text = text.Replace($" {oldWord}!", $" {newWord}!");
+            text = text.Replace($" {oldWord}?", $" {newWord}?");
+            text = text.Replace($" {oldWord}\n", $" {newWord}\n");
+            text = text.Replace($"{oldWord} ", $"{newWord} ");
+            text = text.Replace($"{oldWord}.", $"{newWord}.");
+            text = text.Replace($"{oldWord},", $"{newWord},");
+            text = text.Replace($"{oldWord};", $"{newWord};");
+            text = text.Replace($"{oldWord}!", $"{newWord}!");
+            text = text.Replace($"{oldWord}?", $"{newWord}?");
+            text = text.Replace($"{oldWord}\n", $"{newWord}\n");
             File.WriteAllText(filename, text);
         }
 
