@@ -8,7 +8,6 @@ namespace lab2
     {
         #region Constants
 
-        public const double Epsilon = 0.05;
         public const int N = 1000;
         public const int CriteriaItemsAmount = 10;
         public const double BernulliP = 0.5;
@@ -18,119 +17,172 @@ namespace lab2
         public const double PuassonLambda = 2;
         public const int NegativeBinomialR = 5;
         public const double NegativeBinomialP = 0.25;
-        public static Dictionary<double, double> Pearson49Quantiles = new Dictionary<double, double>()
+        public static Dictionary<int, double> Pearson0_05Quantiles = new Dictionary<int, double>()
         {
-            { 0.01, 74.919 },
-            { 0.025, 70.222 },
-            { 0.05, 66.339 },
-            { 0.10, 62.038 },
-            { 0.20, 57.059 },
-            { 0.30, 53.67 }
+            { 1, 3.8415 },
+            { 2, 5.9915 },
+            { 3, 7.8147 },
+            { 4, 9.4877 },
+            { 5, 11.07 },
+            { 9, 16.919 },
+            { 49, 66.339 }
         };
 
         #endregion
 
         static void Main(string[] args)
         {
-            Console.WriteLine($"Epsilon={Epsilon}, N={N}, CriteriaItemsAmount={CriteriaItemsAmount}");
-            Console.WriteLine(Environment.NewLine + $"-----Bernulli distribution (P={BernulliP})-----");
-            DisplayResults(GetBernulliSequence(BernulliP), 
+            Console.WriteLine($"N={N}");
+            DisplayResults($"P={BernulliP}", 2, GetBernulliSequence(BernulliP),
                 BernulliProbabilityFunction, BernulliMathematicalExpectation, BernulliDispersion);
-            Console.WriteLine(Environment.NewLine + $"-----Binomial distribution (M={BinomialM}, P={BinomialP})-----");
-            DisplayResults(GetBinomialSequence(N, BinomialM, BinomialP), 
+            DisplayResults($"M={BinomialM}, P={BinomialP}", BinomialM + 1, GetBinomialSequence(N, BinomialM, BinomialP),
                 BinomialProbabilityFunction, BinomialMathematicalExpectation, BinomialDispersion);
-            Console.WriteLine(Environment.NewLine + $"-----Geometrical distribution (P={GeometricalP})-----");
-            DisplayResults(GetGeometricalSequence(GeometricalP), 
+            DisplayResults($"P={GeometricalP}", CriteriaItemsAmount, GetGeometricalSequence(GeometricalP),
                 GeometricalProbabilityFunction, GeometricalMathematicalExpectation, GeometricalDispersion);
-            Console.WriteLine(Environment.NewLine + $"-----Puasson distribution (Lamdba={PuassonLambda})-----");
-            DisplayResults(GetPuassonSequence(N, PuassonLambda), 
+            DisplayResults($"Lamdba={PuassonLambda}", CriteriaItemsAmount, GetPuassonSequence(N, PuassonLambda), 
                 PuassonProbabilityFunction, PuassonMathematicalExpectation, PuassonDispersion);
-            Console.WriteLine(Environment.NewLine + $"-----Negative Binomial distribution (R={NegativeBinomialR}, P={NegativeBinomialP})-----");
-            DisplayResults(GetNegativeBinomialSequence(N, NegativeBinomialR, NegativeBinomialP), 
+            DisplayResults($"R={NegativeBinomialR}, P={NegativeBinomialP}", CriteriaItemsAmount, 
+                GetNegativeBinomialSequence(N, NegativeBinomialR, NegativeBinomialP), 
                 NegativeBinomialProbabilityFunction, NegativeBinomialMathematicalExpectation, NegativeBinomialDispersion);
             Console.ReadKey();
         }
 
-        private static void DisplayResults(IEnumerable<double> results, ProbabilityFunction probabilityFunction, 
-            MathematicalExpectation mathematicalExpectation, Dispersion dispersion)
+        private static void DisplayResults(string parameters, int criteriaItemsAmount, List<double> results,
+            ProbabilityFunction probabilityFunction, MathematicalExpectation mathematicalExpectation, Dispersion dispersion)
         {
+            Console.WriteLine(Environment.NewLine + 
+                $"-----{dispersion.Method.Name.Replace("Dispersion", "")} distribution ({parameters})-----");
             results.Take(30).ToList().ForEach(x => Console.Write($"{x:F0} "));
-            Console.Write(Environment.NewLine + $"{results.Count()} items: ");
-            for (int i = 0; i < 8; i++)
+            Console.Write(Environment.NewLine + $"{N} items: ");
+            for (int i = 0; i < Math.Min(7, criteriaItemsAmount); i++)
             {
                 Console.Write($"{i}({results.Count(x => x == i)}) ");
             }
-
             Console.WriteLine();
             Console.WriteLine($"Practical  : Average={results.Average():F5}, Dispersion={CalculateDispersion(results.ToList()):F5}");
             Console.WriteLine($"Theoretical: Average={mathematicalExpectation():F5}, Dispersion={dispersion():F5}");
-            CheckPearsonCriteria(GetSortedList(results), probabilityFunction);
+            CheckPearsonCriteria(GetSortedList(results), probabilityFunction, criteriaItemsAmount);
+
+            double CalculateDispersion(List<double> list) => list.Sum(x => Math.Pow(x - list.Average(), 2)) / list.Count;
+            List<double> GetSortedList(List<double> list) => list.OrderBy(x => x).ToList();
+        }
+
+        private static void CheckPearsonCriteria(List<double> list, ProbabilityFunction function, int criteriaItemsAmount)
+        {
+            var probabilityFunctionValues = GetProbabilityFunctionValues();
+            var valuesAmount = GetAmountByValues();
+            double value = 0;
+            for (int i = 0; i < criteriaItemsAmount; i++)
+            {
+                if (probabilityFunctionValues[i] != 0)
+                {
+                    value += Math.Pow(valuesAmount[i] - N * probabilityFunctionValues[i], 2) / (N * probabilityFunctionValues[i]);
+                }
+            }
+            Console.WriteLine($"Pearson criterion: {DisplayCriteriaResults(Pearson0_05Quantiles[criteriaItemsAmount - 1])}");
+
+            List<double> GetProbabilityFunctionValues() //For Puasson: 0.220, 0.333, 0.252, 0.127, 0.048, 0.015, 0.005
+            {
+                return GetIEnumerableProbabilityFunctionValues().ToList();
+                IEnumerable<double> GetIEnumerableProbabilityFunctionValues()
+                {
+                    for (int i = 0; i < criteriaItemsAmount; i++)
+                    {
+                        yield return function(i);
+                    }
+                }
+            }
+            List<int> GetAmountByValues()
+            {
+                return GetIEnumerableAmountByValues().ToList();
+                IEnumerable<int> GetIEnumerableAmountByValues()
+                {
+                    for (int i = 0; i < criteriaItemsAmount; i++)
+                    {
+                        yield return list.Count(x => x == i);
+                    }
+                }
+            }
+            string DisplayCriteriaResults(double quantile) => value < quantile ?
+                $"{value:F5} < {quantile:F3}, so it's passed" : $"{value:F5} > {quantile:F3}, so it isn't passed";
         }
 
         #region Sequence modeling algorithms
 
-        private static IEnumerable<double> GetBernulliSequence(double p) =>
-            GetRandomSequence(N).Select(x => x <= p ? 1.0 : 0.0);
+        private static List<double> GetBernulliSequence(double p) =>
+            GetRandomSequence(N).Select(x => x <= p ? 1.0 : 0.0).ToList();
 
-        private static IEnumerable<double> GetBinomialSequence(int amount, int m, double p)
+        private static List<double> GetBinomialSequence(int amount, int m, double p)
         {
-            var randomSequence = GetRandomSequence(amount * m);
-            for (int i = 0; i < amount; i++)
+            return GetBinomialSequence().ToList();
+            IEnumerable<double> GetBinomialSequence()
             {
-                var randomSubsequence = randomSequence.Skip(i * m).Take(m).ToList();
-                double value = 0;
-                randomSubsequence.ForEach(x => value += p > x ? 1 : 0);
-                yield return value;
+                var randomSequence = GetRandomSequence(amount * m);
+                for (int i = 0; i < amount; i++)
+                {
+                    var randomSubsequence = randomSequence.Skip(i * m).Take(m).ToList();
+                    double value = 0;
+                    randomSubsequence.ForEach(x => value += p > x ? 1 : 0);
+                    yield return value;
+                }
             }
         }
 
-        private static IEnumerable<double> GetGeometricalSequence(double p) =>
-            GetRandomSequence(N).Select(x => Math.Floor(Math.Log(x) / Math.Log(1 - p)));
+        private static List<double> GetGeometricalSequence(double p) =>
+            GetRandomSequence(N).Select(x => Math.Floor(Math.Log(x) / Math.Log(1 - p))).ToList();
 
-        private static IEnumerable<double> GetPuassonSequence(int amount, double lamdba)
+        private static List<double> GetPuassonSequence(int amount, double lamdba)
         {
-            var randomSequence = GetRandomSequence((int)(amount * lamdba * 10));
-            var eInMinusLambda = Math.Pow(Math.E, -lamdba);
-            int randomSequenceCounter = 0;
-            for (int i = 0; i < amount; i++)
+            return GetPuassonSequence().ToList();
+            IEnumerable<double> GetPuassonSequence()
             {
-                double currentMultiplication = randomSequence.ElementAt(randomSequenceCounter);
-                randomSequenceCounter++;
-                double counter = 0;
-                while (currentMultiplication >= eInMinusLambda)
+                var randomSequence = GetRandomSequence((int)(amount * 2 * lamdba));
+                var eInMinusLambda = Math.Pow(Math.E, -lamdba);
+                int randomSequenceCounter = 0;
+                for (int i = 0; i < amount; i++)
                 {
-                    counter++;
-                    currentMultiplication *= randomSequence.ElementAt(randomSequenceCounter);
+                    double currentMultiplication = randomSequence.ElementAt(randomSequenceCounter);
                     randomSequenceCounter++;
-                }
+                    double counter = 0;
+                    while (currentMultiplication >= eInMinusLambda)
+                    {
+                        counter++;
+                        currentMultiplication *= randomSequence.ElementAt(randomSequenceCounter);
+                        randomSequenceCounter++;
+                    }
 
-                yield return counter;
+                    yield return counter;
+                }
             }
         }
 
-        private static IEnumerable<double> GetNegativeBinomialSequence(int amount, int r, double p)
+        private static List<double> GetNegativeBinomialSequence(int amount, int r, double p)
         {
-            var randomSequence = GetRandomSequence((int)(amount * 2 * r * (1 - p) / p));
-            int randomSequenceCounter = 0;
-            for (int i = 0; i < amount; i++)
+            return GetNegativeBinomialSequence().ToList();
+            IEnumerable<double> GetNegativeBinomialSequence()
             {
-                var smallerThanPCounter = 0;
-                var biggerThanPCounter = 0;
-                while (smallerThanPCounter < r)
+                var randomSequence = GetRandomSequence((int)(amount * 2 * NegativeBinomialMathematicalExpectation()));
+                int randomSequenceCounter = 0;
+                for (int i = 0; i < amount; i++)
                 {
-                    var randomElement = randomSequence.ElementAt(randomSequenceCounter);
-                    randomSequenceCounter++;
-                    if (randomElement < p)
+                    var smallerThanPCounter = 0;
+                    var biggerThanPCounter = 0;
+                    while (smallerThanPCounter < r)
                     {
-                        smallerThanPCounter++;
+                        var randomElement = randomSequence.ElementAt(randomSequenceCounter);
+                        randomSequenceCounter++;
+                        if (randomElement < p)
+                        {
+                            smallerThanPCounter++;
+                        }
+                        else
+                        {
+                            biggerThanPCounter++;
+                        }
                     }
-                    else
-                    {
-                        biggerThanPCounter++;
-                    }
-                }
 
-                yield return biggerThanPCounter;
+                    yield return biggerThanPCounter;
+                }
             }
         }
 
@@ -140,21 +192,7 @@ namespace lab2
 
         delegate double ProbabilityFunction(int x);
 
-        private static double BernulliProbabilityFunction(int x)
-        {
-            if (x == 1)
-            {
-                return BernulliP;
-            }
-            else if (x == 0)
-            {
-                return 1 - BernulliP;
-            }
-            else
-            {
-                return 0;
-            }
-        }
+        private static double BernulliProbabilityFunction(int x) => x == 1 ? BernulliP : (x == 0 ? 1 - BernulliP : 0);
 
         private static double BinomialProbabilityFunction(int x) =>
             Math.Pow(BinomialP, x) * Math.Pow(1 - BinomialP, BinomialM - x) *
@@ -205,63 +243,22 @@ namespace lab2
 
         #endregion
 
-        #region Pearson criteria
-
-        private static void CheckPearsonCriteria(List<double> list, ProbabilityFunction function)
-        {
-            var probabilityFunctionValues = GetProbabilityFunctionValues(function, CriteriaItemsAmount).ToList();
-            var valuesAmount = GetAmountByValues(list).ToList();
-            double value = 0;
-            for (int i = 0; i < CriteriaItemsAmount; i++)
-            {
-                if (probabilityFunctionValues[i] != 0)
-                {
-                    value += Math.Pow(valuesAmount[i] - N * probabilityFunctionValues[i], 2) / (N * probabilityFunctionValues[i]);
-                }
-            }
-
-            Console.WriteLine($"Pearson criterion: {DisplayCriteriaResults(value, Pearson49Quantiles[Epsilon])}");
-        }
-
-        //For Puasson: 0.220, 0.333, 0.252, 0.127, 0.048, 0.015, 0.005
-        private static IEnumerable<double> GetProbabilityFunctionValues(ProbabilityFunction function, int amount)
-        {
-            for (int i = 0; i < amount; i++)
-            {
-                yield return function(i);
-            }
-        }
-
-        private static IEnumerable<int> GetAmountByValues(List<double> list)
-        {
-            for (int i = 0; i < CriteriaItemsAmount; i++)
-            {
-                yield return list.Count(x => x == i);
-            }
-        }
-
-        private static string DisplayCriteriaResults(double value, double quantile) => value < quantile ?
-            $"{value:F5} < {quantile:F3}, so it's passed" : $"{value:F5} > {quantile:F3}, so it isn't passed";
-
-        #endregion
-
         #region Supporting functions
-
-        private static double CalculateDispersion(List<double> list) =>
-            list.Sum(x => Math.Pow(x - list.Average(), 2)) / list.Count;
 
         private static long Factorial(long x) => x <= 1 ? 1 : x * Factorial(x - 1);
 
-        private static IEnumerable<double> GetRandomSequence(int amount)
+        private static List<double> GetRandomSequence(int amount)
         {
-            var random = new Random();
-            for (int i = 0; i < amount; i++)
+            return GetRandomSequence().ToList();
+            IEnumerable<double> GetRandomSequence()
             {
-                yield return random.NextDouble();
+                var random = new Random();
+                for (int i = 0; i < amount; i++)
+                {
+                    yield return random.NextDouble();
+                }
             }
         }
-
-        private static List<double> GetSortedList(IEnumerable<double> list) => list.OrderBy(x => x).ToList();
 
         #endregion
     }
