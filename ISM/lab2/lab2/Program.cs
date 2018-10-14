@@ -35,14 +35,14 @@ namespace lab2
             Console.WriteLine($"N={N}");
             DisplayResults($"P={BernulliP}", 2, GetBernulliSequence(BernulliP),
                 BernulliProbabilityFunction, BernulliMathematicalExpectation, BernulliDispersion);
-            DisplayResults($"M={BinomialM}, P={BinomialP}", BinomialM + 1, GetBinomialSequence(N, BinomialM, BinomialP),
+            DisplayResults($"M={BinomialM}, P={BinomialP}", BinomialM + 1, GetBinomialSequence(BinomialM, BinomialP),
                 BinomialProbabilityFunction, BinomialMathematicalExpectation, BinomialDispersion);
             DisplayResults($"P={GeometricalP}", CriteriaItemsAmount, GetGeometricalSequence(GeometricalP),
                 GeometricalProbabilityFunction, GeometricalMathematicalExpectation, GeometricalDispersion);
-            DisplayResults($"Lamdba={PuassonLambda}", CriteriaItemsAmount, GetPuassonSequence(N, PuassonLambda), 
+            DisplayResults($"Lamdba={PuassonLambda}", CriteriaItemsAmount, GetPuassonSequence(PuassonLambda), 
                 PuassonProbabilityFunction, PuassonMathematicalExpectation, PuassonDispersion);
             DisplayResults($"R={NegativeBinomialR}, P={NegativeBinomialP}", CriteriaItemsAmount, 
-                GetNegativeBinomialSequence(N, NegativeBinomialR, NegativeBinomialP), 
+                GetNegativeBinomialSequence(NegativeBinomialR, NegativeBinomialP), 
                 NegativeBinomialProbabilityFunction, NegativeBinomialMathematicalExpectation, NegativeBinomialDispersion);
             Console.ReadKey();
         }
@@ -112,13 +112,13 @@ namespace lab2
         private static List<double> GetBernulliSequence(double p) =>
             GetRandomSequence(N).Select(x => x <= p ? 1.0 : 0.0).ToList();
 
-        private static List<double> GetBinomialSequence(int amount, int m, double p)
+        private static List<double> GetBinomialSequence(int m, double p)
         {
             return GetBinomialSequence().ToList();
             IEnumerable<double> GetBinomialSequence()
             {
-                var randomSequence = GetRandomSequence(amount * m);
-                for (int i = 0; i < amount; i++)
+                var randomSequence = GetRandomSequence(N * m);
+                for (int i = 0; i < N; i++)
                 {
                     var randomSubsequence = randomSequence.Skip(i * m).Take(m).ToList();
                     double value = 0;
@@ -131,15 +131,15 @@ namespace lab2
         private static List<double> GetGeometricalSequence(double p) =>
             GetRandomSequence(N).Select(x => Math.Floor(Math.Log(x) / Math.Log(1 - p))).ToList();
 
-        private static List<double> GetPuassonSequence(int amount, double lamdba)
+        private static List<double> GetPuassonSequence(double lamdba)
         {
             return GetPuassonSequence().ToList();
             IEnumerable<double> GetPuassonSequence()
             {
-                var randomSequence = GetRandomSequence((int)(amount * 2 * lamdba));
+                var randomSequence = GetRandomSequence((int)(N * 2 * lamdba));
                 var eInMinusLambda = Math.Pow(Math.E, -lamdba);
                 int randomSequenceCounter = 0;
-                for (int i = 0; i < amount; i++)
+                for (int i = 0; i < N; i++)
                 {
                     double currentMultiplication = randomSequence.ElementAt(randomSequenceCounter);
                     randomSequenceCounter++;
@@ -156,14 +156,14 @@ namespace lab2
             }
         }
 
-        private static List<double> GetNegativeBinomialSequence(int amount, int r, double p)
+        private static List<double> GetNegativeBinomialSequence(int r, double p)
         {
             return GetNegativeBinomialSequence().ToList();
             IEnumerable<double> GetNegativeBinomialSequence()
             {
-                var randomSequence = GetRandomSequence((int)(amount * 2 * NegativeBinomialMathematicalExpectation()));
+                var randomSequence = GetRandomSequence((int)(N * 2 * NegativeBinomialMathematicalExpectation()));
                 int randomSequenceCounter = 0;
-                for (int i = 0; i < amount; i++)
+                for (int i = 0; i < N; i++)
                 {
                     var smallerThanPCounter = 0;
                     var biggerThanPCounter = 0;
