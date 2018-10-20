@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using NLog;
 
 namespace NLP
 {
@@ -21,6 +21,10 @@ namespace NLP
         public List<string> Files { get; set; } = new List<string>();
 
         public SortingType CurrentSortingType { get; set; } = SortingType.None;
+
+        public string CurrentText { get; set; }
+
+        public static Logger Logger = LogManager.GetCurrentClassLogger();
 
         public MainWindow()
         {
@@ -37,37 +41,35 @@ namespace NLP
             if (openFileDialog.ShowDialog() == true)
             {
                 Files.Add(openFileDialog.FileName);
-                using (FileStream fstream = File.OpenRead(openFileDialog.FileName))
+                string taggedText = Tagger.TagText(openFileDialog.FileName);
+                int counter = 0;
+                IEnumerable<Match> words = Regex.Matches(taggedText, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>();
+                foreach (var match in words)
                 {
-                    byte[] array = new byte[fstream.Length];
-                    fstream.Read(array, 0, array.Length);
-                    string text = Encoding.UTF8.GetString(array);
-                    int counter = 0;
-                    IEnumerable<string> words = Regex.Matches(text, "(?<word>[a-zA-Z-—]+('(s|d|ve|ll))?)(<[a-zA-Z]+>)?").Cast<Match>().Select(x => x.Groups["word"].Value);
-                    foreach (var word in words)
+                    //Logger.Info(match);
+                    string word = match.Groups["word"].Value;
+                    string tag = match.Groups["tag"].Value;
+                    if (!String.IsNullOrWhiteSpace(word))
                     {
-                        if (!String.IsNullOrWhiteSpace(word))
+                        var currentWord = WordDictionary.FirstOrDefault(x => x.Name == word);
+                        if (currentWord == null)
                         {
-                            var currentWord = WordDictionary.FirstOrDefault(x => x.Name == word);
-                            if (currentWord == null)
-                            {
-                                WordDictionary.Add(new Word(word, 1));
-                            }
-                            else
-                            {
-                                currentWord.Amount++;
-                            }
+                            WordDictionary.Add(new Word(word, 1, tag));
                         }
-
-                        counter++;
-                        ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / words.Count(), DispatcherPriority.Background);
+                        else
+                        {
+                            currentWord.IncrementAmountAndAddNewTag(tag);
+                        }
                     }
 
-                    ClearWordsDatabase();
-                    db.Words.AddRange(WordDictionary.ToList());
-                    db.SaveChanges();
-                    StatusLine.Text = $"{openFileDialog.FileName} has been parsed.";
+                    counter++;
+                    ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / words.Count(), DispatcherPriority.Background);
                 }
+
+                ClearWordsDatabase();
+                db.Words.AddRange(WordDictionary.ToList());
+                db.SaveChanges();
+                StatusLine.Text = $"{openFileDialog.FileName} has been parsed.";
             }
         }
 
@@ -118,13 +120,7 @@ namespace NLP
             }
         }
 
-        private void AnalyzeText_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (var word in WordDictionary)
-            {
-                Files.ForEach(x => ReplaceTaggedWord(x, word.Name, word.GetAnalyzedWord()));
-            }
-        }
+        private void AnalyzeText_Click(object sender, RoutedEventArgs e) => Tagger.TagTexts(Files);
 
         #endregion
 
@@ -152,33 +148,6 @@ namespace NLP
             }
 
             text = text.Replace(oldWord, newWord);
-            File.WriteAllText(filename, text);
-        }
-
-        private void ReplaceTaggedWord(string filename, string oldWord, string newWord)
-        {
-            string text;
-            using (FileStream fstream = File.OpenRead(filename))
-            {
-                byte[] array = new byte[fstream.Length];
-                fstream.Read(array, 0, array.Length);
-                text = Encoding.UTF8.GetString(array);
-            }
-
-            text = text.Replace($" {oldWord} ", $" {newWord} ");
-            text = text.Replace($" {oldWord}.", $" {newWord}.");
-            text = text.Replace($" {oldWord},", $" {newWord},");
-            text = text.Replace($" {oldWord};", $" {newWord};");
-            text = text.Replace($" {oldWord}!", $" {newWord}!");
-            text = text.Replace($" {oldWord}?", $" {newWord}?");
-            text = text.Replace($" {oldWord}\n", $" {newWord}\n");
-            text = text.Replace($"{oldWord} ", $"{newWord} ");
-            text = text.Replace($"{oldWord}.", $"{newWord}.");
-            text = text.Replace($"{oldWord},", $"{newWord},");
-            text = text.Replace($"{oldWord};", $"{newWord};");
-            text = text.Replace($"{oldWord}!", $"{newWord}!");
-            text = text.Replace($"{oldWord}?", $"{newWord}?");
-            text = text.Replace($"{oldWord}\n", $"{newWord}\n");
             File.WriteAllText(filename, text);
         }
 
