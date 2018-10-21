@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using NLog;
+using System.Threading.Tasks;
 
 namespace NLP
 {
@@ -17,8 +18,6 @@ namespace NLP
     {
         DictionaryContext db = new DictionaryContext();
         public ObservableCollection<Word> WordDictionary { get; set; } = new ObservableCollection<Word>();
-
-        public List<string> Files { get; set; } = new List<string>();
 
         public SortingType CurrentSortingType { get; set; } = SortingType.None;
 
@@ -29,6 +28,7 @@ namespace NLP
         public MainWindow()
         {
             InitializeComponent();
+            //WordDictionaryListView.ItemsSource = db.Words.ToList();
             WordDictionary = new ObservableCollection<Word>(db.Words);
             DataContext = this;
         }
@@ -40,43 +40,46 @@ namespace NLP
             var openFileDialog = new OpenFileDialog { Multiselect = true };
             if (openFileDialog.ShowDialog() == true)
             {
-                Files.Add(openFileDialog.FileName);
-                string taggedText = Tagger.TagText(openFileDialog.FileName);
+                db.AddText(new Text(openFileDialog.FileName));
+                string taggedText = File.ReadAllText(openFileDialog.FileName);
                 int counter = 0;
                 IEnumerable<Match> words = Regex.Matches(taggedText, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>();
                 foreach (var match in words)
                 {
-                    //Logger.Info(match);
                     string word = match.Groups["word"].Value;
                     string tag = match.Groups["tag"].Value;
-                    if (!String.IsNullOrWhiteSpace(word))
+                    var currentWord = WordDictionary.FirstOrDefault(x => x.Name == word);
+                    if (currentWord == null)
                     {
-                        var currentWord = WordDictionary.FirstOrDefault(x => x.Name == word);
-                        if (currentWord == null)
-                        {
-                            WordDictionary.Add(new Word(word, 1, tag));
-                        }
-                        else
-                        {
-                            currentWord.IncrementAmountAndAddNewTag(tag);
-                        }
+                        WordDictionary.Add(new Word(word, 1, tag));
+                    }
+                    else
+                    {
+                        currentWord.IncrementAmountAndAddNewTag(tag);
                     }
 
                     counter++;
                     ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / words.Count(), DispatcherPriority.Background);
                 }
 
-                ClearWordsDatabase();
-                db.Words.AddRange(WordDictionary.ToList());
-                db.SaveChanges();
+                Task.Factory.StartNew(() => SaveWordDictionary());
                 StatusLine.Text = $"{openFileDialog.FileName} has been parsed.";
             }
+        }
+
+        private void SaveWordDictionary()
+        {
+            db.TruncateWords();
+            db.Words.AddRange(WordDictionary.ToList());
+            db.SaveChanges();
+            Application.Current.Dispatcher.Invoke(() => { StatusLine.Text = $"Changes has been saved."; });
         }
 
         private void ClearDatabase_Click(object sender, RoutedEventArgs e)
         {
             WordDictionary.Clear();
-            ClearWordsDatabase();
+            db.TruncateWords();
+            db.TruncateTexts();
             StatusLine.Text = "Table has been cleared.";
         }
 
@@ -108,6 +111,20 @@ namespace NLP
             }
         }
 
+        private void TagsTableHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (CurrentSortingType == SortingType.TagsAscending)
+            {
+                CurrentSortingType = SortingType.TagsDescending;
+                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Tags).ToList());
+            }
+            else
+            {
+                CurrentSortingType = SortingType.TagsAscending;
+                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Tags).ToList());
+            }
+        }
+
         private void UpdateWord_Click(object sender, RoutedEventArgs e)
         {
             var modalWindow = new WordEditingModalWindow();
@@ -115,12 +132,18 @@ namespace NLP
             {
                 if (modalWindow.NewWordTextBox.Text != String.Empty && modalWindow.OldWordTextBox.Text != String.Empty)
                 {
-                    Files.ForEach(x => ReplaceWord(x, modalWindow.OldWordTextBox.Text, modalWindow.NewWordTextBox.Text));
+                    db.Texts.ToList().ForEach(x => ReplaceWord(x.Path, modalWindow.OldWordTextBox.Text, modalWindow.NewWordTextBox.Text));
                 }
             }
         }
 
-        private void AnalyzeText_Click(object sender, RoutedEventArgs e) => Tagger.TagTexts(Files);
+        private void AnalyzeAllTexts_Click(object sender, RoutedEventArgs e)
+        {
+            Tagger.TagTexts(db.Texts.Where(x => x.IsTagged == 0).ToList());
+            db.Texts.ToList().ForEach(x => x.IsTagged = 1);
+            db.SaveChanges();
+            StatusLine.Text = $"All texts has been analysed.";
+        }
 
         #endregion
 
@@ -160,6 +183,8 @@ namespace NLP
         NameDescending,
         AmountAscending,
         AmountDescending,
+        TagsAscending,
+        TagsDescending,
         None
     }
 }

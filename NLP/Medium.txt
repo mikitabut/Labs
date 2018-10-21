@@ -1,0 +1,430 @@
+The/DT, Big/NNP, Four/NNP, by/IN, Agatha/NNP, Christie/NNP, 1/CD, The/DT, Unexpected/NNP, Quest/NNP, I/PRP, have/VBP, met/VBN, people/NNS, who/WP, enjoy/VBP, a/DT, channel/NN, crossing/VBG, ;/:, men/NNS, who/WP, can/MD, sit/VB, calmly/RB, in/IN, their/PRP$, deck-chairs/NNS, and/CC, ,/,, on/IN, arrival/NN, ,/,, wait/VB, until/IN, the/DT, boat/NN, is/VBZ, moored/VBN, ,/,, then/RB, gather/VB, their/PRP$, belongings/NNS, together/RB, without/IN, fuss/NN, and/CC, disembark/VB, ./.
+Personally/RB, ,/,, I/PRP, can/MD, never/RB, manage/VB, this/DT, ./.
+From/IN, the/DT, moment/NN, I/PRP, get/VBP, on/IN, board/NN, I/PRP, feel/VBP, that/IN, the/DT, time/NN, is/VBZ, too/RB, short/JJ, to/TO, settle/VB, down/RB, to/TO, anything/NN, ./.
+I/PRP, move/VBP, my/PRP$, suitcases/NNS, from/IN, one/CD, spot/NN, to/TO, another/DT, ,/,, and/CC, if/IN, I/PRP, go/VBP, down/RB, to/TO, the/DT, saloon/NN, for/IN, a/DT, meal/NN, I/NN, bolt/NN, my/PRP$, food/NN, with/IN, an/DT, uneasy/JJ, feeling/NN, that/IN, the/DT, boat/NN, may/MD, arrive/VB, unexpectedly/RB, whilst/VBP, I/PRP, am/VBP, below/IN, ./.
+Perhaps/RB, all/PDT, this/DT, is/VBZ, merely/RB, a/DT, legacy/NN, from/IN, one/CD, 's/POS, short/JJ, leaves/NNS, in/IN, the/DT, war/NN, ,/,, when/WRB, it/PRP, seemed/VBD, a/DT, matter/NN, of/IN, such/JJ, importance/NN, to/TO, secure/VB, a/DT, place/NN, near/IN, the/DT, gangway/NN, ,/,, and/CC, to/TO, be/VB, amongst/IN, the/DT, first/JJ, to/TO, disembark/VB, lest/IN, one/PRP, should/MD, waste/VB, precious/JJ, minutes/NNS, of/IN, one/CD, 's/POS, three/CD, or/CC, five/CD, days/NNS, '/POS, leave/NN, ./.
+On/IN, this/DT, particular/JJ, July/NNP, morning/NN, ,/,, as/IN, I/PRP, stood/VBD, by/IN, the/DT, rail/NN, and/CC, watched/VBD, the/DT, white/JJ, cliffs/NNS, of/IN, Dover/NNP, drawing/NN, nearer/IN, ,/,, I/PRP, marvelled/VBD, at/IN, the/DT, passengers/NNS, who/WP, could/MD, sit/VB, calmly/RB, in/IN, their/PRP$, chairs/NNS, and/CC, never/RB, even/RB, raise/VB, their/PRP$, eyes/NNS, for/IN, the/DT, first/JJ, sight/NN, of/IN, the/DT, native/JJ, land/NN, ./.
+Yet/RB, perhaps/RB, their/PRP$, case/NN, was/VBD, different/JJ, from/IN, mine/NN, ./.
+Doubtless/JJ, many/JJ, of/IN, them/PRP, had/VBD, only/RB, crossed/VBN, to/TO, Paris/NNP, for/IN, the/DT, weekend/NN, ,/,, whereas/IN, I/PRP, had/VBD, spent/VBN, the/DT, last/JJ, year/NN, and/CC, a/DT, half/NN, on/IN, a/DT, ranch/NN, in/IN, the/DT, Argentine/JJ, ./.
+I/PRP, had/VBD, prospered/VBN, there/RB, ,/,, and/CC, my/PRP$, wife/NN, and/CC, I/PRP, had/VBD, both/DT, enjoyed/VBN, the/DT, free/JJ, and/CC, easy/JJ, life/NN, of/IN, the/DT, South/JJ, American/JJ, continent/NN, ,/,, nevertheless/RB, it/PRP, was/VBD, with/IN, a/DT, lump/NN, in/IN, my/PRP$, throat/NN, that/IN, I/PRP, watched/VBD, the/DT, familiar/JJ, shore/NN, draw/NN, nearer/IN, and/CC, nearer/IN, ./.
+I/PRP, had/VBD, landed/VBN, in/IN, France/NNP, two/CD, days/NNS, before/RB, ,/,, transacted/VBD, some/DT, necessary/JJ, business/NN, ,/,, and/CC, was/VBD, now/RB, en/IN, route/NN, for/IN, London/NNP, ./.
+I/PRP, should/MD, be/VB, there/RB, some/DT, months/NNS, --/:, time/NN, enough/JJ, to/TO, look/VB, up/RP, old/JJ, friends/NNS, ,/,, and/CC, one/CD, old/JJ, friend/NN, in/IN, particular/JJ, ./.
+A/DT, little/JJ, man/NN, with/IN, an/DT, egg-shaped/JJ, head/NN, and/CC, green/JJ, eyes/NNS, --/:, Hercule/NNP, Poirot/NNP, !/.
+I/PRP, proposed/VBD, to/TO, take/VB, him/PRP, completely/RB, by/IN, surprise/NN, ./.
+My/PRP$, last/JJ, letter/NN, from/IN, the/DT, Argentine/JJ, had/VBD, given/VBN, no/DT, hint/NN, of/IN, my/PRP$, intended/JJ, voyage/NN, --/:, indeed/RB, ,/,, that/WDT, had/VBD, been/VBN, decided/VBN, upon/RB, hurriedly/RB, as/IN, a/DT, result/NN, of/IN, certain/JJ, business/NN, complications/NNS, --/:, and/CC, I/PRP, spent/VBD, many/JJ, amused/VBN, moments/NNS, picturing/VBG, to/TO, myself/PRP, his/PRP$, delight/NN, and/CC, stupefaction/NN, on/IN, beholding/VBG, me/PRP, ./.
+He/PRP, ,/,, I/PRP, knew/VBD, ,/,, was/VBD, not/RB, likely/JJ, to/TO, be/VB, far/RB, from/IN, his/PRP$, headquarters/NN, ./.
+The/DT, time/NN, when/WRB, his/PRP$, cases/NNS, had/VBD, drawn/VBN, him/PRP, from/IN, one/CD, end/NN, of/IN, England/NNP, to/TO, the/DT, other/JJ, was/VBD, past/JJ, ./.
+His/PRP$, fame/NN, had/VBD, spread/VBN, ,/,, and/CC, no/RB, longer/RBR, would/MD, he/PRP, allow/VB, one/CD, case/NN, to/TO, absorb/VB, all/PDT, his/PRP$, time/NN, ./.
+He/PRP, aimed/VBD, more/JJR, and/CC, more/JJR, ,/,, as/IN, time/NN, went/VBD, on/IN, ,/,, at/IN, being/VBG, considered/VBN, a/DT, ``/``, consulting/NN, detective/NN, ''/'', --/:, as/RB, much/RB, a/DT, specialist/NN, as/IN, a/DT, Harley/NNP, Street/NNP, physician/NN, ./.
+He/PRP, had/VBD, always/RB, scoffed/VBN, at/IN, the/DT, popular/JJ, idea/NN, of/IN, the/DT, human/JJ, bloodhound/NN, who/WP, assumed/VBD, wonderful/JJ, disguises/NNS, to/TO, track/VB, criminals/NNS, ,/,, and/CC, who/WP, paused/VBD, at/IN, every/DT, footprint/NN, to/TO, measure/VB, it/PRP, ./.
+``/``, No/UH, ,/,, my/PRP$, friend/NN, Hastings/NNP, ,/,, ''/'', he/PRP, would/MD, say/VB, ;/:, ``/``, we/PRP, leave/VBP, that/DT, to/TO, Giraud/NNP, and/CC, his/PRP$, friends/NNS, ./.
+Hercule/NNP, Poirot/NNP, 's/POS, methods/NNS, are/VBP, his/PRP$, own/JJ, ./.
+Order/NN, and/CC, method/NN, ,/,, and/CC, `/``, the/DT, little/JJ, grey/JJ, cells/NNS, ./., '/''
+Sitting/VBG, at/IN, ease/NN, in/IN, our/PRP$, own/JJ, armchairs/NNS, we/PRP, see/VBP, the/DT, things/NNS, that/IN, these/DT, others/NNS, overlook/VBP, ,/,, and/CC, we/PRP, do/VBP, not/RB, jump/VB, to/TO, the/DT, conclusion/NN, like/IN, the/DT, worthy/JJ, Japp/NNP, ./., ''/''
+No/DT, ;/:, there/EX, was/VBD, little/JJ, fear/NN, of/IN, finding/VBG, Hercule/NNP, Poirot/NNP, far/RB, afield/RB, ./.
+On/IN, arrival/NN, in/IN, London/NNP, ,/,, I/PRP, deposited/VBD, my/PRP$, luggage/NN, at/IN, an/DT, hotel/NN, and/CC, drove/VBD, straight/RB, on/IN, to/TO, the/DT, old/JJ, address/NN, ./.
+What/WP, poignant/JJ, memories/NNS, it/PRP, brought/VBD, back/RB, to/TO, me/PRP, !/.
+I/PRP, hardly/RB, waited/VBD, to/TO, greet/VB, my/PRP$, old/JJ, landlady/NN, ,/,, but/CC, hurried/VBD, up/RP, the/DT, stairs/NNS, two/CD, at/IN, a/DT, time/NN, and/CC, rapped/VBD, on/IN, Poirot/NNP, 's/POS, door/NN, ./.
+``/``, Enter/VB, ,/,, then/RB, ,/,, ''/'', cried/VBD, a/DT, familiar/JJ, voice/NN, from/IN, within/IN, ./.
+I/PRP, strode/VBD, in/RP, ./.
+Poirot/NNP, stood/VBD, facing/VBG, me/PRP, ./.
+In/IN, his/PRP$, arms/NNS, he/PRP, carried/VBD, a/DT, small/JJ, valise/NN, ,/,, which/WDT, he/PRP, dropped/VBD, with/IN, a/DT, crash/NN, on/IN, beholding/VBG, me/PRP, ./.
+``/``, Mon/NNP, ami/NNP, ,/,, Hastings/NNP, !/., ''/''
+he/PRP, cried/VBD, ./.
+``/``, Mon/NNP, ami/NNP, ,/,, Hastings/NNP, !/., ''/''
+And/CC, ,/,, rushing/VBG, forward/RB, ,/,, he/PRP, enveloped/VBD, me/PRP, in/IN, a/DT, capacious/NN, embrace/VB, ./.
+Our/PRP$, conversation/NN, was/VBD, incoherent/JJ, and/CC, inconsequent/JJ, ./.
+Ejaculations/NNS, ,/,, eager/JJ, questions/NNS, ,/,, incomplete/JJ, answers/NNS, ,/,, messages/NNS, from/IN, my/PRP$, wife/NN, ,/,, explanations/NNS, as/IN, to/TO, my/PRP$, journey/NN, ,/,, were/VBD, all/DT, jumbled/VBN, up/RP, together/RB, ./.
+``/``, I/PRP, suppose/VBP, there/EX, 's/VBZ, someone/NN, in/IN, my/PRP$, old/JJ, rooms/NNS, ?/., ''/''
+I/PRP, asked/VBD, at/IN, last/JJ, ,/,, when/WRB, we/PRP, had/VBD, calmed/VBN, down/RB, somewhat/RB, ./.
+``/``, I/PRP, 'd/MD, love/VB, to/TO, put/VB, up/RP, here/RB, again/RB, with/IN, you/PRP, ./., ''/''
+Poirot/NNP, 's/POS, face/NN, changed/VBD, with/IN, startling/JJ, suddenness/NN, ./.
+``/``, Mon/NNP, Dieu/NNP, !/.
+but/CC, what/WP, a/DT, chance/NN, epouvantable/JJ, ./.
+Regard/NN, around/IN, you/PRP, ,/,, my/PRP$, friend/NN, ./., ''/''
+For/IN, the/DT, first/JJ, time/NN, I/PRP, took/VBD, note/NN, of/IN, my/PRP$, surroundings/NNS, ./.
+Against/IN, the/DT, wall/NN, stood/VBD, a/DT, vast/JJ, ark/NN, of/IN, a/DT, trunk/NN, of/IN, prehistoric/JJ, design/NN, ./.
+Near/IN, to/TO, it/PRP, were/VBD, placed/VBN, a/DT, number/NN, of/IN, suitcases/NNS, ,/,, ranged/VBD, neatly/RB, in/IN, order/NN, of/IN, size/NN, from/IN, large/JJ, to/TO, small/JJ, ./., ''/''
+-LSB-/NNP, Missing/NNP, -RSB-/NNP, every/DT, day/NN, I/PRP, say/VBP, to/TO, myself/PRP, ,/,, I/PRP, will/MD, write/VB, nothing/NN, in/IN, my/PRP$, letters/NNS, --/:, but/CC, oh/UH, !/.
+The/DT, surprise/NN, of/IN, the/DT, good/JJ, Hastings/NNP, when/WRB, he/PRP, beholds/VBZ, me/PRP, !/., ''/''
+``/``, But/CC, when/WRB, are/VBP, you/PRP, going/VBG, ?/., ''/''
+Poirot/NNP, looked/VBD, at/IN, his/PRP$, watch/NN, ./.
+``/``, In/IN, an/DT, hour/NN, 's/POS, time/NN, ./., ''/''
+``/``, I/PRP, thought/VBD, you/PRP, always/RB, said/VBD, nothing/NN, would/MD, induce/VB, you/PRP, to/TO, make/VB, a/DT, long/JJ, sea/NN, voyage/NN, ?/., ''/''
+Poirot/NNP, closed/VBD, his/PRP$, eyes/NNS, and/CC, shuddered/VBD, ./.
+``/``, Speak/VB, not/RB, of/IN, it/PRP, to/TO, me/PRP, ,/,, my/PRP$, friend/NN, ./.
+My/PRP$, doctor/NN, ,/,, he/PRP, assures/VBZ, me/PRP, that/DT, one/NN, dies/VBZ, not/RB, of/IN, it/PRP, --/:, and/CC, it/PRP, is/VBZ, for/IN, the/DT, one/CD, time/NN, only/RB, ;/:, you/PRP, understand/VBP, ,/,, that/IN, never/RB, --/:, never/RB, shall/MD, I/PRP, return/VB, ./., ''/''
+He/PRP, pushed/VBD, me/PRP, into/IN, a/DT, chair/NN, ./.
+``/``, Come/VBD, ,/,, I/PRP, will/MD, tell/VB, you/PRP, how/WRB, it/PRP, all/DT, came/VBD, about/IN, ./.
+Do/VBP, you/PRP, know/VBP, who/WP, is/VBZ, the/DT, richest/JJS, man/NN, in/IN, the/DT, world/NN, ?/.
+Richer/JJR, even/RB, than/IN, Rockefeller/NNP, ?/.
+Abe/NNP, Ryland/NNP, ./., ''/''
+``/``, The/DT, American/NNP, Soap/NNP, King/NNP, ?/., ''/''
+``/``, Precisely/RB, ./.
+One/CD, of/IN, his/PRP$, secretaries/NNS, approached/VBD, me/PRP, ./.
+There/EX, is/VBZ, some/DT, very/RB, considerable/JJ, ,/,, as/IN, you/PRP, would/MD, call/VB, it/PRP, ,/,, hocus-pocus/VBZ, going/VBG, on/RP, in/IN, connection/NN, with/IN, a/DT, big/JJ, company/NN, in/IN, Rio/NNP, ./.
+He/PRP, wished/VBD, me/PRP, to/TO, investigate/VB, matters/NNS, on/IN, the/DT, spot/NN, ./.
+I/PRP, refused/VBD, ./.
+I/PRP, told/VBD, him/PRP, that/IN, if/IN, the/DT, facts/NNS, were/VBD, laid/VBN, before/IN, me/PRP, ,/,, I/PRP, would/MD, give/VB, him/PRP, my/PRP$, expert/NN, opinion/NN, ./.
+But/CC, that/IN, he/PRP, professed/VBD, himself/PRP, unable/JJ, to/TO, do/VB, ./.
+I/PRP, was/VBD, to/TO, be/VB, put/VBN, in/IN, possession/NN, of/IN, the/DT, facts/NNS, only/RB, on/IN, my/PRP$, arrival/NN, out/RB, there/RB, ./., ''/''
+``/``, Normally/RB, ,/,, that/WDT, would/MD, have/VB, closed/VBN, the/DT, matter/NN, ./.
+To/TO, dictate/VB, to/TO, Hercule/NNP, Poirot/NNP, is/VBZ, sheer/JJ, impertinence/NN, ./.
+But/CC, the/DT, sum/NN, offered/VBD, was/VBD, so/RB, stupendous/JJ, that/IN, for/IN, the/DT, first/JJ, time/NN, in/IN, my/PRP$, life/NN, I/PRP, was/VBD, tempted/VBN, by/IN, mere/JJ, money/NN, ./.
+It/PRP, was/VBD, a/DT, compettence/NN, --/:, a/DT, fortune/NN, !/.
+And/CC, there/EX, was/VBD, a/DT, second/JJ, attraction/NN, --/:, you/PRP, ,/,, my/PRP$, friend/NN, ./.
+For/IN, this/DT, last/JJ, year/NN, and/CC, a/DT, half/NN, I/PRP, have/VBP, been/VBN, a/DT, very/RB, lonely/JJ, old/JJ, man/NN, ./.
+I/PRP, thought/VBD, to/TO, myself/PRP, ./.
+Why/WRB, not/RB, ?/.
+I/PRP, am/VBP, beginning/VBG, to/TO, weary/JJ, of/IN, this/DT, unending/JJ, solving/VBG, of/IN, foolish/JJ, problems/NNS, ./.
+I/PRP, have/VBP, achieved/VBN, sufficient/JJ, fame/NN, ./.
+Let/VB, me/PRP, take/VB, this/DT, money/NN, and/CC, settle/VB, down/RP, somewhere/RB, near/IN, my/PRP$, old/JJ, friend/NN, ./., ''/''
+I/PRP, was/VBD, quite/RB, affected/VBN, by/IN, this/DT, token/JJ, of/IN, Poirot/NNP, 's/POS, regard/NN, ./.
+``/``, So/RB, I/PRP, accepted/VBD, ,/,, ''/'', he/PRP, continued/VBD, ,/,, ``/``, and/CC, in/IN, an/DT, hour/NN, 's/POS, time/NN, I/PRP, must/MD, leave/VB, to/TO, catch/VB, the/DT, boat/NN, train/NN, ./.
+One/CD, of/IN, life/NN, 's/POS, little/JJ, ironies/NNS, ,/,, is/VBZ, it/PRP, not/RB, ?/.
+But/CC, I/PRP, will/MD, admit/VB, to/TO, you/PRP, ,/,, Hastings/NNP, ,/,, that/WDT, had/VBD, not/RB, the/DT, money/NN, offered/VBD, been/VBN, so/RB, big/JJ, ,/,, I/PRP, might/MD, have/VB, hesitated/VBN, ,/,, for/IN, just/RB, lately/RB, I/PRP, have/VBP, begun/VBN, a/DT, little/JJ, investigation/NN, of/IN, my/PRP$, own/JJ, ./.
+Tell/VB, me/PRP, ,/,, what/WP, is/VBZ, commonly/RB, meant/VBN, by/IN, the/DT, phrase/NN, ,/,, `/``, The/DT, Big/NNP, Four/NNP, '/POS, ?/., ''/''
+``/``, I/PRP, suppose/VBP, it/PRP, had/VBD, its/PRP$, origin/NN, at/IN, the/DT, Versailles/NNP, Conference/NNP, ,/,, and/CC, then/RB, there/EX, 's/VBZ, the/DT, famous/JJ, `/``, Big/NNP, Four/NNP, '/'', in/IN, the/DT, film/NN, world/NN, ,/,, and/CC, the/DT, term/NN, is/VBZ, used/VBN, by/IN, hosts/NNS, of/IN, smaller/JJR, fry/NN, ./., ''/''
+``/``, I/PRP, see/VBP, ,/,, ''/'', said/VBD, Poirot/NNP, thoughtfully/RB, ./.
+``/``, I/PRP, have/VBP, come/VBN, across/IN, the/DT, phrase/NN, ,/,, you/PRP, understand/VBP, ,/,, under/IN, certain/JJ, circumstances/NNS, where/WRB, none/NN, of/IN, those/DT, explanations/NNS, would/MD, apply/VB, ./.
+It/PRP, seems/VBZ, to/TO, refer/VB, to/TO, a/DT, gang/NN, of/IN, international/JJ, criminals/NNS, or/CC, something/NN, of/IN, that/DT, kind/NN, ;/:, only/RB, --/:, ''/'', ``/``, Only/RB, what/WP, ?/., ''/''
+I/PRP, asked/VBD, ,/,, as/IN, he/PRP, hesitated/VBD, ./.
+``/``, Only/RB, that/IN, I/PRP, fancy/JJ, that/IN, it/PRP, is/VBZ, something/NN, on/IN, a/DT, large/JJ, scale/NN, ./.
+Just/RB, a/DT, little/JJ, idea/NN, of/IN, mine/NN, ,/,, nothing/NN, more/JJR, ./.
+Ah/UH, ,/,, but/CC, I/PRP, must/MD, complete/VB, my/PRP$, packing/NN, ./.
+The/DT, time/NN, advances/NNS, ./., ''/''
+``/``, Do/VBP, n't/RB, go/VB, ,/,, ''/'', I/PRP, urged/VBD, ./.
+``/``, Cancel/VB, your/PRP$, passage/NN, and/CC, come/VB, out/RP, on/IN, the/DT, same/JJ, boat/NN, with/IN, me/PRP, ./., ''/''
+Poirot/NNP, drew/VBD, himself/PRP, up/RP, and/CC, glanced/VBD, at/IN, me/PRP, reproachfully/RB, ./.
+``/``, Ah/UH, ,/,, it/PRP, is/VBZ, that/IN, you/PRP, do/VBP, not/RB, understand/VB, !/.
+I/PRP, have/VBP, passed/VBN, my/PRP$, word/NN, ,/,, you/PRP, comprehend/VBP, --/:, the/DT, word/NN, of/IN, Hercule/NNP, Poirot/NNP, ./.
+Nothing/NN, but/CC, a/DT, matter/NN, of/IN, life/NN, or/CC, death/NN, could/MD, detain/VB, me/PRP, now/RB, ./., ''/''
+``/``, And/CC, that/DT, 's/VBZ, not/RB, likely/JJ, to/TO, occur/VB, ,/,, ''/'', I/PRP, murmured/VBD, ruefully/RB, ./.
+``/``, Unless/IN, at/IN, the/DT, eleventh/NN, hour/NN, `/``, the/DT, door/NN, opens/VBZ, and/CC, the/DT, unexpected/JJ, guest/NN, comes/VBZ, in/IN, ./., '/'', ''/''
+I/PRP, quoted/VBD, the/DT, old/JJ, saw/NN, with/IN, a/DT, slight/JJ, laugh/NN, ,/,, and/CC, then/RB, ,/,, in/IN, the/DT, pause/NN, that/WDT, succeeded/VBD, it/PRP, ,/,, we/PRP, both/DT, started/VBD, as/IN, a/DT, sound/NN, came/VBD, from/IN, the/DT, inner/JJ, room/NN, ./.
+``/``, What/WP, 's/VBZ, that/IN, ?/., ''/''
+I/PRP, cried/VBD, ./.
+``/``, Mais/FW, oui/FW, ''/'', retorted/VBD, Poirot/NNP, ./.
+``/``, It/PRP, sounds/VBZ, very/RB, like/IN, your/PRP$, `/``, unexpected/JJ, guest/NN, '/'', in/IN, my/PRP$, bedroom/NN, ./., ''/''
+``/``, But/CC, how/WRB, can/MD, anyone/NN, be/VB, in/IN, there/RB, ?/.
+There/EX, 's/VBZ, no/DT, door/NN, except/IN, into/IN, this/DT, room/NN, ./., ''/''
+``/``, Your/PRP$, memory/NN, is/VBZ, excellent/JJ, ,/,, Hastings/NNP, ./.
+Now/RB, for/IN, the/DT, deductions/NNS, ./., ''/''
+``/``, The/DT, window/NN, !/.
+But/CC, it/PRP, 's/VBZ, a/DT, burglar/NN, ,/,, then/RB, ?/.
+He/PRP, must/MD, have/VB, had/VBD, a/DT, stiff/JJ, climb/NN, of/IN, it/PRP, --/:, I/PRP, should/MD, say/VB, it/PRP, was/VBD, almost/RB, impossible/JJ, ./., ''/''
+I/PRP, had/VBD, risen/VBN, to/TO, my/PRP$, feet/NNS, and/CC, was/VBD, striding/VBG, in/IN, the/DT, direction/NN, of/IN, the/DT, door/NN, when/WRB, the/DT, sound/NN, of/IN, a/DT, fumbling/NN, at/IN, the/DT, handle/VB, from/IN, the/DT, other/JJ, side/NN, arrested/VBD, me/PRP, ./.
+The/DT, door/NN, swung/VBD, slowly/RB, open/JJ, ./.
+Framed/VBN, in/IN, the/DT, doorway/NN, stood/VBD, a/DT, man/NN, ./.
+He/PRP, was/VBD, coated/VBN, from/IN, head/NN, to/TO, foot/VB, with/IN, dust/NN, and/CC, mud/NN, ;/:, his/PRP$, face/NN, was/VBD, thin/JJ, and/CC, emaciated/JJ, ./.
+He/PRP, stared/VBD, at/IN, us/PRP, for/IN, a/DT, moment/NN, ,/,, and/CC, then/RB, swayed/VBD, and/CC, fell/VBD, ./.
+Poirot/NNP, hurried/VBD, to/TO, his/PRP$, side/NN, ,/,, then/RB, he/PRP, looked/VBD, up/RB, and/CC, spoke/VBD, to/TO, me/PRP, ./.
+``/``, Brandy/NNP, --/:, quickly/RB, ./., ''/''
+I/PRP, dashed/VBD, some/DT, brandy/NN, into/IN, a/DT, glass/NN, and/CC, brought/VBD, it/PRP, ./.
+Poirot/NNP, managed/VBD, to/TO, administer/VB, a/DT, little/JJ, ,/,, and/CC, together/RB, we/PRP, raised/VBD, him/PRP, and/CC, carried/VBD, him/PRP, to/TO, the/DT, couch/NN, ./.
+In/IN, a/DT, few/JJ, minutes/NNS, he/PRP, opened/VBD, his/PRP$, eyes/NNS, and/CC, looked/VBD, round/VB, him/PRP, with/IN, an/DT, almost/RB, vacant/JJ, stare/VBP, ./.
+``/``, What/WP, is/VBZ, it/PRP, you/PRP, want/VBP, ,/,, monsieur/NN, ?/., ''/''
+said/VBD, Poirot/NNP, ./.
+The/DT, man/NN, opened/VBD, his/PRP$, lips/NNS, and/CC, spoke/VBD, in/IN, a/DT, queer/NN, mechanical/JJ, voice/NN, ./.
+``/``, M./NNP, Hercule/NNP, Poirot/NNP, ,/,, 14/CD, Farraway/NNP, Street/NNP, ./., ''/''
+``/``, Yes/UH, ,/,, yes/RB, ;/:, I/PRP, am/VBP, he/PRP, ./., ''/''
+The/DT, man/NN, did/VBD, not/RB, seem/VB, to/TO, understand/VB, ,/,, and/CC, merely/RB, repeated/VBN, in/IN, exactly/RB, the/DT, same/JJ, tone/NN, :/:, ``/``, M./NNP, Hercule/NNP, Poirot/NNP, ,/,, 14/CD, Farraway/NNP, Street/NNP, ./., ''/''
+Poirot/NNP, tried/VBD, him/PRP, with/IN, several/JJ, questions/NNS, ./.
+Sometimes/RB, the/DT, man/NN, did/VBD, not/RB, answer/VB, at/IN, all/DT, ;/:, sometimes/RB, he/PRP, repeated/VBD, the/DT, same/JJ, phrase/NN, ./.
+Poirot/NNP, made/VBD, a/DT, sign/NN, to/TO, me/PRP, to/TO, ring/VB, up/RP, on/IN, the/DT, telephone/NN, ./.
+``/``, Get/VB, Dr./NNP, Ridgeway/NNP, to/TO, come/VB, round/NN, ./., ''/''
+The/DT, doctor/NN, was/VBD, in/IN, luckily/RB, ;/:, and/CC, as/IN, his/PRP$, house/NN, was/VBD, only/RB, just/RB, round/VB, the/DT, corner/NN, ,/,, few/JJ, minutes/NNS, elapsed/VBN, before/IN, he/PRP, came/VBD, bustling/JJ, in/IN, ./.
+``/``, What/WP, 's/VBZ, all/PDT, this/DT, ,/,, eh/VB, ?/., ''/''
+Poirot/NNP, gave/VBD, a/DT, brief/JJ, explanation/NN, ,/,, and/CC, the/DT, doctor/NN, started/VBD, examining/VBG, our/PRP$, strange/JJ, visitor/NN, ,/,, who/WP, seemed/VBD, quite/RB, unconscious/JJ, of/IN, his/PRP$, presence/NN, or/CC, ours/JJ, ./.
+``/``, Hm/NN, !/., ''/''
+said/VBD, Dr./NNP, Ridgeway/NNP, ,/,, when/WRB, he/PRP, had/VBD, finished/VBN, ./.
+``/``, Curious/JJ, case/NN, ./., ''/''
+``/``, Brain/NN, fever/NN, ?/., ''/''
+I/PRP, suggested/VBD, ./.
+The/DT, doctor/NN, immediately/RB, snorted/VBD, with/IN, contempt/NN, ./.
+``/``, Brain/NN, fever/NN, !/.
+Brain/NN, fever/NN, !/.
+No/DT, such/JJ, thing/NN, as/IN, brain/NN, fever/NN, ./.
+An/DT, invention/NN, of/IN, novelists/NNS, ./.
+No/DT, ;/:, the/DT, man/NN, 's/POS, had/VBD, a/DT, shock/NN, of/IN, some/DT, kind/NN, ./.
+He/PRP, 's/VBZ, come/VBN, here/RB, under/IN, the/DT, force/NN, of/IN, a/DT, persistent/JJ, idea/NN, --/:, to/TO, find/VB, M./NNP, Hercule/NNP, Poirot/NNP, ,/,, 14/CD, Farraway/NNP, Street/NNP, --/:, and/CC, he/PRP, repeats/VBZ, those/DT, words/NNS, mechanically/RB, without/IN, in/IN, the/DT, least/JJS, knowing/VBG, what/WP, they/PRP, mean/VBP, ./., ''/''
+``/``, Aphasia/NNP, ?/., ''/''
+I/PRP, said/VBD, eagerly/RB, ./.
+This/DT, suggestion/NN, did/VBD, not/RB, cause/VB, the/DT, doctor/NN, to/TO, snort/VB, quite/RB, as/RB, violently/RB, as/IN, my/PRP$, last/JJ, one/CD, had/VBD, done/VBN, ./.
+He/PRP, made/VBD, no/DT, answer/NN, ,/,, but/CC, handed/VBD, the/DT, man/NN, a/DT, sheet/NN, of/IN, paper/NN, and/CC, a/DT, pencil/NN, ./.
+``/``, Let/VB, 's/POS, see/VB, what/WP, he/PRP, 'll/MD, do/VB, with/IN, that/DT, ,/,, ''/'', he/PRP, remarked/VBD, ./.
+The/DT, man/NN, did/VBD, nothing/NN, with/IN, it/PRP, for/IN, some/DT, moments/NNS, ,/,, then/RB, he/PRP, suddenly/RB, began/VBD, to/TO, write/VB, feverishly/RB, ./.
+With/IN, equal/JJ, suddenness/NN, he/PRP, stopped/VBD, and/CC, let/VB, both/DT, paper/NN, and/CC, pencil/NN, fall/NN, to/TO, the/DT, ground/NN, ./.
+The/DT, doctor/NN, picked/VBD, it/PRP, up/RP, ,/,, and/CC, shook/VBD, his/PRP$, head/NN, ./.
+``/``, Nothing/NN, here/RB, ./.
+Only/RB, the/DT, figure/NN, 4/CD, scrawled/VBD, a/DT, dozen/NN, times/NNS, ,/,, each/DT, one/CD, bigger/JJR, than/IN, the/DT, last/JJ, ./.
+Wants/NNS, to/TO, write/VB, 14/CD, Farraway/NNP, Street/NNP, ,/,, I/PRP, expect/VBP, ./.
+It/PRP, 's/VBZ, an/DT, interesting/JJ, case/NN, --/:, very/RB, interesting/JJ, ./.
+Can/MD, you/PRP, possibly/RB, keep/VB, him/PRP, here/RB, until/IN, this/DT, afternoon/NN, ?/.
+I/PRP, 'm/VBP, due/JJ, at/IN, the/DT, hospital/NN, now/RB, ,/,, but/CC, I/PRP, 'll/MD, come/VB, back/RB, this/DT, afternoon/NN, and/CC, make/VB, all/DT, arrangements/NNS, about/IN, him/PRP, ./.
+It/PRP, 's/VBZ, too/RB, interesting/JJ, a/DT, case/NN, to/TO, be/VB, lost/VBN, sight/NN, of/IN, ./., ''/''
+I/PRP, explained/VBD, Poirot/NNP, 's/POS, departure/NN, and/CC, the/DT, fact/NN, that/IN, I/PRP, proposed/VBD, to/TO, accompany/VB, him/PRP, to/TO, Southampton/NNP, ./.
+``/``, That/DT, 's/VBZ, all/DT, right/NN, ./.
+Leave/VB, the/DT, man/NN, here/RB, ./.
+He/PRP, wo/MD, n't/RB, get/VB, into/IN, mischief/NN, ./.
+He/PRP, 's/VBZ, suffering/VBG, from/IN, complete/JJ, exhaustion/NN, ./.
+Will/MD, probably/RB, sleep/VB, for/IN, eight/CD, hours/NNS, on/IN, end/NN, ./.
+I/PRP, 'll/MD, have/VB, a/DT, word/NN, with/IN, that/DT, excellent/JJ, Mrs./NNP, Funnyface/NNP, of/IN, yours/NNS, ,/,, and/CC, tell/VB, her/PRP, to/TO, keep/VB, an/DT, eye/NN, on/IN, him/PRP, ./., ''/''
+And/CC, Dr./NNP, Ridgeway/NNP, bustled/VBD, out/RP, with/IN, his/PRP$, usual/JJ, celerity/NN, ./.
+Poirot/NNP, hastily/RB, completed/VBD, his/PRP$, packing/NN, ,/,, with/IN, one/CD, eye/NN, on/IN, the/DT, clock/NN, ./.
+``/``, The/DT, time/NN, ,/,, it/PRP, marches/NNS, with/IN, a/DT, rapidity/NN, unbelievable/JJ, ./.
+Come/VBN, now/RB, ,/,, Hastings/NNP, ,/,, you/PRP, can/MD, not/RB, say/VB, that/IN, I/PRP, have/VBP, left/VBN, you/PRP, with/IN, nothing/NN, to/TO, do/VB, ./.
+A/DT, most/RBS, sensational/JJ, problem/NN, ./., ''/''
+``/``, The/DT, man/NN, from/IN, the/DT, unknown/NN, ./.
+Who/WP, is/VBZ, he/PRP, ?/.
+What/WP, is/VBZ, he/PRP, ?/.
+Ah/UH, ,/,, sapristi/NNS, ,/,, but/CC, I/PRP, would/MD, give/VB, two/CD, years/NNS, of/IN, my/PRP$, life/NN, to/TO, have/VB, this/DT, boat/NN, go/VB, tomorrow/NN, instead/RB, of/IN, today/NN, ./.
+There/EX, is/VBZ, something/NN, here/RB, very/RB, curious/JJ, --/:, very/RB, interesting/JJ, ./.
+But/CC, one/PRP, must/MD, have/VB, time/NN, --/:, time/NN, ./.
+It/PRP, may/MD, be/VB, days/NNS, --/:, or/CC, even/RB, months/NNS, --/:, before/IN, he/PRP, will/MD, be/VB, able/JJ, to/TO, tell/VB, us/PRP, what/WP, he/PRP, came/VBD, to/TO, tell/VB, ./., ''/''
+``/``, I/PRP, 'll/MD, do/VB, my/PRP$, best/JJS, ,/,, Poirot/NNP, ,/,, ''/'', I/PRP, assured/VBD, him/PRP, ./.
+``/``, I/PRP, 'll/MD, try/VB, to/TO, be/VB, an/DT, efficient/JJ, substitute/NN, ./., ''/''
+``/``, Yes/RB, ./., ''/''
+His/PRP$, rejoinder/NN, struck/VBD, me/PRP, as/IN, being/VBG, a/DT, shade/NN, doubtful/JJ, ./.
+I/PRP, picked/VBD, up/RP, the/DT, sheet/NN, of/IN, paper/NN, ./.
+``/``, If/IN, I/PRP, were/VBD, writing/VBG, a/DT, story/NN, ,/,, ''/'', I/PRP, said/VBD, lightly/RB, ,/,, ``/``, I/PRP, should/MD, weave/VB, this/DT, in/IN, with/IN, your/PRP$, latest/JJS, idiosyncrasy/NN, and/CC, call/VB, it/PRP, The/DT, Mystery/NN, of/IN, the/DT, Big/NNP, Four/NNP, ./., ''/''
+I/PRP, tapped/VBD, the/DT, pencilled/JJ, figures/NNS, as/IN, I/PRP, spoke/VBD, ./.
+And/CC, then/RB, I/PRP, started/VBD, ,/,, for/IN, our/PRP$, invalid/JJ, ,/,, roused/VBD, suddenly/RB, from/IN, his/PRP$, stupor/NN, ,/,, sat/VBD, up/RP, in/IN, his/PRP$, chair/NN, and/CC, said/VBD, clearly/RB, and/CC, distinctly/RB, :/:, ``/``, Li/NNP, Chang/NNP, Yen/NNP, ./., ''/''
+He/PRP, had/VBD, the/DT, look/NN, of/IN, a/DT, man/NN, suddenly/RB, awakened/VBD, from/IN, sleep/NN, ./.
+Poirot/NNP, made/VBD, a/DT, sign/NN, to/TO, me/PRP, not/RB, to/TO, speak/VB, ./.
+The/DT, man/NN, went/VBD, on/IN, ./.
+He/PRP, spoke/VBD, in/IN, a/DT, clear/JJ, ,/,, high/JJ, voice/NN, ,/,, and/CC, something/NN, in/IN, his/PRP$, enunciation/NN, made/VBD, me/PRP, feel/VB, that/IN, he/PRP, was/VBD, quoting/VBG, from/IN, some/DT, written/VBN, report/NN, or/CC, lecture/NN, ./.
+``/``, Li/NNP, Chang/NNP, Yen/NNP, may/MD, be/VB, regarded/VBN, as/IN, representing/VBG, the/DT, brains/NNS, of/IN, the/DT, Big/NNP, Four/NNP, ./.
+He/PRP, is/VBZ, the/DT, controlling/NN, and/CC, motive/NN, force/NN, ./.
+I/PRP, have/VBP, designated/VBN, him/PRP, ,/,, therefore/RB, ,/,, as/IN, Number/NNP, One/CD, ./.
+Number/NN, Two/CD, is/VBZ, seldom/RB, mentioned/VBN, by/IN, name/NN, ./.
+He/PRP, is/VBZ, represented/VBN, by/IN, an/DT, 'S/POS, '/'', with/IN, two/CD, lines/NNS, through/IN, it/PRP, --/:, the/DT, sign/NN, for/IN, a/DT, dollar/NN, ;/:, also/RB, by/IN, two/CD, stripes/NNS, and/CC, a/DT, star/NN, ./.
+It/PRP, may/MD, be/VB, conjectured/VBN, ,/,, therefore/RB, ,/,, that/IN, he/PRP, is/VBZ, an/DT, American/JJ, subject/NN, ,/,, and/CC, that/IN, he/PRP, represents/VBZ, the/DT, power/NN, of/IN, wealth/NN, ./.
+There/EX, seems/VBZ, no/DT, doubt/NN, that/IN, Number/NNP, Three/NNP, is/VBZ, a/DT, woman/NN, ,/,, and/CC, her/PRP$, nationality/NN, French/NNS, ./.
+It/PRP, is/VBZ, possible/JJ, that/IN, she/PRP, may/MD, be/VB, one/CD, of/IN, the/DT, sirens/NNS, of/IN, the/DT, demi-monde/NN, ,/,, but/CC, nothing/NN, is/VBZ, known/VBN, definitely/RB, ./.
+Number/NNP, Four/NNP, --/:, ''/'', His/PRP$, voice/NN, faltered/VBD, and/CC, broke/VBD, ./.
+Poirot/NN, leant/NN, forward/RB, ./.
+``/``, Yes/RB, ,/,, ''/'', he/PRP, prompted/VBD, eagerly/RB, ./.
+``/``, Number/NNP, Four/NNP, ?/., ''/''
+His/PRP$, eyes/NNS, were/VBD, fastened/VBN, on/IN, the/DT, man/NN, 's/POS, face/NN, ./.
+Some/DT, overmastering/VBG, terror/NN, seemed/VBD, to/TO, be/VB, gaining/VBG, the/DT, day/NN, ;/:, the/DT, features/NNS, were/VBD, distorted/VBN, and/CC, twisted/VBN, ./.
+``/``, The/DT, destroyer/NN, ,/,, ''/'', gasped/VBD, the/DT, man/NN, ./.
+Then/RB, ,/,, with/IN, a/DT, final/JJ, convulsive/JJ, movement/NN, ,/,, he/PRP, fell/VBD, back/RB, in/IN, a/DT, dead/JJ, faint/JJ, ./.
+``/``, Mon/NNP, Dieu/NNP, !/., ''/''
+whispered/VBD, Poirot/NNP, ,/,, ``/``, I/PRP, was/VBD, right/RB, then/RB, ./.
+I/PRP, was/VBD, right/JJ, ./., ''/''
+``/``, You/PRP, think/VBP, --/:, ?/., ''/''
+He/PRP, interrupted/VBD, me/PRP, ./.
+``/``, Carry/VB, him/PRP, on/IN, to/TO, the/DT, bed/NN, in/IN, my/PRP$, room/NN, ./.
+I/PRP, have/VBP, not/RB, a/DT, minute/NN, to/TO, lose/VB, if/IN, I/PRP, would/MD, catch/VB, my/PRP$, train/NN, ./.
+Not/RB, that/IN, I/PRP, want/VBP, to/TO, catch/VB, it/PRP, ./.
+Oh/UH, ,/,, that/IN, I/PRP, could/MD, miss/VB, it/PRP, with/IN, a/DT, clear/JJ, conscience/NN, !/.
+But/CC, I/PRP, gave/VBD, my/PRP$, word/NN, ./.
+Come/VBN, ,/,, Hastings/NNP, !/., ''/''
+Leaving/VBG, our/PRP$, mysterious/JJ, visitor/NN, in/IN, the/DT, charge/NN, of/IN, Mrs./NNP, Pearson/NNP, ,/,, we/PRP, drove/VBD, away/RB, ,/,, and/CC, duly/RB, caught/VBD, the/DT, train/NN, by/IN, the/DT, skin/NN, of/IN, our/PRP$, teeth/NNS, ./.
+Poirot/NNP, was/VBD, alternately/RB, silent/JJ, and/CC, loquacious/JJ, ./.
+He/PRP, would/MD, sit/VB, staring/VBG, out/IN, of/IN, the/DT, window/NN, like/IN, a/DT, man/NN, lost/VBN, in/IN, a/DT, dream/NN, ,/,, apparently/RB, not/RB, hearing/VBG, a/DT, word/NN, that/IN, I/PRP, said/VBD, to/TO, him/PRP, ./.
+Then/RB, ,/,, reverting/VBG, to/TO, animation/NN, suddenly/RB, ,/,, he/PRP, would/MD, shower/VB, injunctions/NNS, and/CC, commands/NNS, upon/IN, me/PRP, ,/,, and/CC, urge/VB, the/DT, necessity/NN, of/IN, constant/JJ, marconigrams/NNS, ./.
+We/PRP, had/VBD, a/DT, long/JJ, fit/NN, of/IN, silence/NN, just/RB, after/IN, we/PRP, passed/VBD, Woking/NNP, ./.
+The/DT, train/NN, ,/,, of/IN, course/NN, ,/,, did/VBD, not/RB, stop/VB, anywhere/RB, until/IN, Southhampton/NNP, ;/:, but/CC, just/RB, here/RB, it/PRP, happened/VBD, to/TO, be/VB, held/VBN, up/RP, by/IN, a/DT, signal/NN, ./.
+``/``, Ah/UH, !/.
+Sacre/JJ, mille/JJ, tonnerres/NNS, !/., ''/''
+cried/VBD, Poirot/NNP, suddenly/RB, ./.
+``/``, But/CC, I/PRP, have/VBP, been/VBN, an/DT, imbecile/NN, ./.
+I/PRP, see/VBP, clearly/RB, at/IN, last/JJ, ./.
+It/PRP, is/VBZ, undoubtedly/RB, the/DT, blessed/VBN, saints/NNS, who/WP, stopped/VBD, the/DT, train/NN, ./.
+Jump/NN, ,/,, Hastings/NNP, ,/,, but/CC, jump/NN, ,/,, I/PRP, tell/VBP, you/PRP, ./., ''/''
+In/IN, an/DT, instant/NN, he/PRP, had/VBD, unfastened/VBN, the/DT, carriage/NN, door/NN, ,/,, and/CC, jumped/VBD, out/RP, on/IN, the/DT, line/NN, ./.
+``/``, Throw/VB, out/RP, the/DT, suitcases/NNS, and/CC, jump/VB, yourself/PRP, ./., ''/''
+I/PRP, obeyed/VBD, him/PRP, ./.
+Just/RB, in/IN, time/NN, ./.
+As/IN, I/PRP, alighted/VBD, beside/IN, him/PRP, ,/,, the/DT, train/NN, moved/VBD, on/RP, ./.
+``/``, And/CC, now/RB, Poirot/NNP, ,/,, ''/'', I/PRP, said/VBD, ,/,, in/IN, some/DT, exasperation/NN, ,/,, ``/``, perhaps/RB, you/PRP, will/MD, tell/VB, me/PRP, what/WP, all/PDT, this/DT, is/VBZ, about/RB, ./., ''/''
+``/``, It/PRP, is/VBZ, ,/,, my/PRP$, friend/NN, ,/,, that/IN, I/PRP, have/VBP, seen/VBN, the/DT, light/NN, ./., ''/''
+``/``, That/DT, ,/,, ''/'', I/PRP, said/VBD, ,/,, ``/``, is/VBZ, very/RB, illuminating/VBG, to/TO, me/PRP, ./., ''/''
+``/``, It/PRP, should/MD, be/VB, ,/,, ''/'', said/VBD, Poirot/NNP, ,/,, ``/``, but/CC, I/PRP, fear/VBP, --/:, I/PRP, very/RB, much/JJ, fear/NN, that/IN, it/PRP, is/VBZ, not/RB, ./.
+If/IN, you/PRP, can/MD, carry/VB, two/CD, of/IN, these/DT, valises/NNS, ,/,, I/PRP, think/VBP, I/PRP, can/MD, manage/VB, the/DT, rest/NN, ./., ''/''
+2/CD, The/DT, Man/NN, from/IN, the/DT, Asylum/NN, Fortunately/RB, the/DT, train/NN, had/VBD, stopped/VBN, near/IN, a/DT, station/NN, ./.
+A/DT, short/JJ, walk/NN, brought/VBD, us/PRP, to/TO, a/DT, garage/NN, where/WRB, we/PRP, were/VBD, able/JJ, to/TO, obtain/VB, a/DT, car/NN, ,/,, and/CC, half/PDT, an/DT, hour/NN, later/RB, we/PRP, were/VBD, spinning/JJ, rapidly/RB, back/RB, to/TO, London/NNP, ./.
+Then/RB, ,/,, and/CC, not/RB, till/IN, then/RB, ,/,, did/VBD, Poirot/NNP, deign/NN, to/TO, satisfy/VB, my/PRP$, curiosity/NN, ./.
+``/``, You/PRP, do/VBP, not/RB, see/VB, ?/.
+No/DT, more/RBR, did/VBD, I/PRP, ./.
+But/CC, I/PRP, see/VBP, now/RB, ./.
+Hastings/NNP, ,/,, I/PRP, was/VBD, being/VBG, got/VBD, out/IN, of/IN, the/DT, way/NN, ./., ''/''
+``/``, What/WP, !/., ''/''
+``/``, Yes/RB, ./.
+Very/RB, cleverly/RB, ./.
+Both/DT, the/DT, place/NN, and/CC, the/DT, method/NN, were/VBD, chosen/VBN, with/IN, great/JJ, knowledge/NN, and/CC, acumen/NNS, ./.
+They/PRP, were/VBD, afraid/JJ, of/IN, me/PRP, ./., ''/''
+``/``, Who/WP, were/VBD, ?/., ''/''
+``/``, Those/DT, four/CD, geniuses/NNS, who/WP, have/VBP, banded/VBN, themselves/PRP, together/RB, to/TO, work/VB, outside/IN, the/DT, law/NN, ./.
+A/DT, Chinaman/NNP, ,/,, an/DT, American/JJ, ,/,, a/DT, Frenchwoman/NNP, ,/,, and/CC, --/:, another/DT, ./.
+Pray/VB, the/DT, good/JJ, God/NNP, we/PRP, arrive/VBP, back/RB, in/IN, time/NN, ,/,, Hastings/NNP, ./., ''/''
+``/``, You/PRP, think/VBP, there/EX, is/VBZ, danger/NN, to/TO, our/PRP$, visitor/NN, ?/., ''/''
+``/``, I/PRP, am/VBP, sure/JJ, of/IN, it/PRP, ./., ''/''
+Mrs./NNP, Pearson/NNP, greeted/VBD, us/PRP, on/IN, arrival/NN, ./.
+Brushing/VBG, aside/RB, her/PRP$, ecstasies/NNS, of/IN, astonishment/NN, on/IN, beholding/VBG, Poirot/NNP, ,/,, we/PRP, asked/VBD, for/IN, information/NN, ./.
+It/PRP, was/VBD, reassuring/JJ, ./.
+No/DT, one/NN, had/VBD, called/VBN, ,/,, and/CC, our/PRP$, guest/NN, had/VBD, not/RB, made/VBN, any/DT, sign/NN, ./.
+With/IN, a/DT, sigh/NN, of/IN, relief/NN, we/PRP, went/VBD, up/IN, to/TO, the/DT, rooms/NNS, ./.
+Poirot/NNP, crossed/VBD, the/DT, outer/JJ, one/CD, and/CC, went/VBD, through/IN, to/TO, the/DT, inner/JJ, one/CD, ./.
+Then/RB, he/PRP, called/VBD, me/PRP, ,/,, his/PRP$, voice/NN, strangely/RB, agitated/VBD, ./.
+``/``, Hastings/NNP, ,/,, he/PRP, 's/VBZ, dead/JJ, ./., ''/''
+I/PRP, came/VBD, running/VBG, to/TO, join/VB, him/PRP, ./.
+The/DT, man/NN, was/VBD, lying/VBG, as/IN, we/PRP, had/VBD, left/VBN, him/PRP, ,/,, but/CC, he/PRP, was/VBD, dead/JJ, ,/,, and/CC, had/VBD, been/VBN, dead/JJ, some/DT, time/NN, ./.
+I/PRP, rushed/VBD, out/RP, for/IN, a/DT, doctor/NN, ./.
+Ridgeway/NNP, ,/,, I/PRP, knew/VBD, ,/,, would/MD, not/RB, have/VB, returned/VBN, yet/RB, ./.
+I/PRP, found/VBD, one/CD, almost/RB, immediately/RB, ,/,, and/CC, brought/VBD, him/PRP, back/RB, with/IN, me/PRP, ./.
+``/``, He/PRP, 's/VBZ, dead/JJ, right/JJ, enough/NN, ,/,, poor/JJ, chap/NN, ./.
+Tramp/NNP, you/PRP, 've/VBP, been/VBN, befriending/VBG, ,/,, eh/VB, ?/., ''/''
+``/``, Something/NN, of/IN, the/DT, kind/NN, ,/,, ''/'', said/VBD, Poirot/NNP, evasively/RB, ./.
+``/``, What/WP, was/VBD, the/DT, cause/NN, of/IN, death/NN, ,/,, doctor/NN, ?/., ''/''
+``/``, Hard/JJ, to/TO, say/VB, ./.
+Might/NNP, have/VBP, been/VBN, some/DT, kind/NN, of/IN, fit/NN, ./.
+There/EX, are/VBP, signs/NNS, of/IN, asphyxiation/NN, ./.
+No/DT, gas/NN, laid/VBN, on/IN, ,/,, is/VBZ, there/RB, ?/., ''/''
+``/``, No/UH, ,/,, electric/JJ, light/NN, --/:, nothing/NN, else/RB, ./., ''/''
+``/``, And/CC, both/DT, windows/NNS, wide/RB, open/JJ, ,/,, too/RB, ./.
+Been/VBN, dead/JJ, about/IN, two/CD, hours/NNS, ,/,, I/PRP, should/MD, say/VB, ./.
+You/PRP, 'll/MD, notify/VB, the/DT, proper/JJ, people/NNS, ,/,, wo/MD, n't/RB, you/PRP, ?/., ''/''
+He/PRP, took/VBD, his/PRP$, departure/NN, ./.
+Poirot/NNP, did/VBD, some/DT, necessary/JJ, telephoning/NN, ./.
+Finally/RB, ,/,, somewhat/RB, to/TO, my/PRP$, surprise/NN, ,/,, he/PRP, rang/VBD, up/RP, our/PRP$, old/JJ, friend/NN, Inspector/NNP, Japp/NNP, ,/,, and/CC, asked/VBD, him/PRP, if/IN, he/PRP, could/MD, possibly/RB, come/VB, round/NN, ./.
+No/DT, sooner/RBR, were/VBD, these/DT, proceedings/NNS, completed/VBN, than/IN, Mrs./NNP, Pearson/NNP, appeared/VBD, ,/,, her/PRP$, eyes/NNS, as/IN, round/NN, as/IN, saucers/NNS, ./.
+``/``, There/EX, 's/VBZ, a/DT, man/NN, here/RB, from/IN, `/``, Anwell/NNP, --/:, from/IN, the/DT, `/``, Sylum/NNP, ./.
+Did/VBD, you/PRP, ever/RB, ?/.
+Shall/NNP, I/PRP, show/VBP, him/PRP, up/RP, ?/., ''/''
+We/PRP, signified/VBD, assent/NN, ,/,, and/CC, a/DT, big/JJ, burly/JJ, man/NN, in/IN, uniform/NN, was/VBD, ushered/VBN, in/IN, ./., ''/''
+`/``, Morning/NN, ,/,, gentlemen/NNS, ,/,, ''/'', he/PRP, said/VBD, cheerfully/RB, ./.
+``/``, I/PRP, 've/VBP, got/VBD, reason/NN, to/TO, believe/VB, you/PRP, 've/VBP, got/VBD, one/CD, of/IN, my/PRP$, birds/NNS, here/RB, ./.
+Escaped/VBN, last/JJ, night/NN, ,/,, he/PRP, did/VBD, ./., ''/''
+``/``, He/PRP, was/VBD, here/RB, ,/,, ''/'', said/VBD, Poirot/NNP, quietly/RB, ./.
+``/``, Not/RB, got/VBD, away/RB, again/RB, ,/,, has/VBZ, he/PRP, ?/., ''/''
+asked/VBD, the/DT, keeper/NN, ,/,, with/IN, some/DT, concern/NN, ./.
+``/``, He/PRP, is/VBZ, dead/JJ, ./., ''/''
+The/DT, man/NN, looked/VBD, more/RBR, relieved/JJ, than/IN, otherwise/RB, ./.
+``/``, You/PRP, do/VBP, n't/RB, say/VB, so/RB, ./.
+Well/RB, ,/,, I/PRP, dare/VBP, say/VBP, it/PRP, 's/VBZ, best/JJS, for/IN, all/DT, parties/NNS, ./., ''/''
+``/``, Was/VBD, he/PRP, --/:, dangerous/JJ, ?/., ''/'', ''/''
+`/``, Omicidal/JJ, ,/,, d'you/JJ, mean/NN, ?/.
+Oh/UH, ,/,, no/DT, ./.
+`/``, Armless/JJ, enough/RB, ./.
+Persecution/NN, mania/NN, very/RB, acute/JJ, ./.
+Full/NNP, of/IN, secret/JJ, societies/NNS, from/IN, China/NNP, that/WDT, had/VBD, got/VBN, him/PRP, shut/VBD, up/RP, ./.
+They/PRP, 're/VBP, all/DT, the/DT, same/JJ, ./., ''/''
+I/PRP, shuddered/VBD, ./.
+``/``, How/WRB, long/RB, had/VBD, he/PRP, been/VBN, shut/VBN, up/RP, ?/., ''/''
+asked/VBD, Poirot/NNP, ./.
+``/``, A/DT, matter/NN, of/IN, two/CD, years/NNS, now/RB, ./., ''/''
+``/``, I/PRP, see/VBP, ,/,, ''/'', said/VBD, Poirot/NNP, quietly/RB, ./.
+``/``, It/PRP, never/RB, occurred/VBD, to/TO, anybody/NN, that/IN, he/PRP, might/MD, --/:, be/VB, sane/VBN, ?/., ''/''
+The/DT, keeper/NN, permitted/VBD, himself/PRP, to/TO, laugh/NN, ./.
+``/``, If/IN, he/PRP, was/VBD, sane/NN, ,/,, what/WP, would/MD, he/PRP, be/VB, doing/VBG, in/IN, a/DT, lunatic/JJ, asylum/NN, ?/.
+They/PRP, all/DT, say/VBP, they/PRP, 're/VBP, sane/NN, ,/,, you/PRP, know/VBP, ./., ''/''
+Poirot/NNP, said/VBD, no/DT, more/JJR, ./.
+He/PRP, took/VBD, the/DT, man/NN, in/IN, to/TO, see/VB, the/DT, body/NN, ./.
+The/DT, identification/NN, came/VBD, immediately/RB, ./.
+``/``, That/DT, 's/VBZ, him/PRP, --/:, right/RB, enough/RB, ,/,, ''/'', said/VBD, the/DT, keeper/NN, callously/RB, ;/:, ``/``, funny/JJ, sort/NN, of/IN, bloke/NN, ,/,, ai/VBP, n't/RB, he/PRP, ?/.
+Well/RB, ,/,, gentlemen/NNS, ,/,, I/PRP, had/VBD, best/RB, go/VB, off/RP, now/RB, and/CC, make/VB, arrangements/NNS, under/IN, the/DT, circumstances/NNS, ./.
+We/PRP, wo/MD, n't/RB, trouble/NN, you/PRP, with/IN, the/DT, corpse/NN, much/RB, longer/JJR, ./.
+If/IN, there/EX, 's/VBZ, an/DT, inquest/NN, ,/,, you/PRP, will/MD, have/VB, to/TO, appear/VB, at/IN, it/PRP, ,/,, I/PRP, dare/VBP, say/VBP, ./.
+Good/JJ, morning/NN, ,/,, sir/NN, ./., ''/''
+With/IN, a/DT, rather/RB, uncouth/JJ, bow/NN, he/PRP, shambled/VBD, out/IN, of/IN, the/DT, room/NN, ./.
+A/DT, few/JJ, minutes/NNS, later/RB, Japp/NNP, arrived/VBD, ./.
+The/DT, Scotland/NNP, Yard/NNP, Inspector/NNP, was/VBD, jaunty/NN, and/CC, dapper/NN, as/IN, usual/JJ, ./.
+``/``, Here/RB, I/PRP, am/VBP, Moosior/NNP, Poirot/NNP, ./.
+What/WP, can/MD, I/PRP, do/VB, for/IN, you/PRP, ?/.
+Thought/NNP, you/PRP, were/VBD, off/RB, to/TO, the/DT, coral/JJ, strands/NNS, of/IN, somewhere/RB, or/CC, other/JJ, today/NN, ?/., ''/''
+``/``, My/PRP$, good/JJ, Japp/NN, ,/,, I/PRP, want/VBP, to/TO, know/VB, if/IN, you/PRP, have/VBP, ever/RB, seen/VBN, this/DT, man/NN, before/RB, ./., ''/''
+He/PRP, led/VBD, Japp/NNP, into/IN, the/DT, bedroom/NN, ./.
+The/DT, inspector/NN, stared/VBD, down/RB, at/IN, the/DT, figure/NN, on/IN, the/DT, bed/NN, with/IN, a/DT, puzzled/VBN, face/NN, ./.
+``/``, Let/VB, me/PRP, see/VB, now/RB, --/:, he/PRP, seems/VBZ, sort/NN, of/IN, familiar/JJ, --/:, and/CC, I/PRP, pride/NN, myself/PRP, on/IN, my/PRP$, memory/NN, ,/,, too/RB, ./.
+Why/WRB, ,/,, God/NNP, bless/VB, my/PRP$, soul/NN, ,/,, it/PRP, 's/VBZ, Mayerling/VBG, !/., ''/''
+``/``, And/CC, who/WP, is/VBZ, --/:, or/CC, was/VBD, --/:, Mayerling/VBG, ?/., ''/''
+``/``, Secret/NNP, Service/NNP, chap/NN, --/:, not/RB, one/CD, of/IN, our/PRP$, people/NNS, ./.
+Went/JJ, to/TO, Russia/NNP, five/CD, years/NNS, ago/RB, ./.
+Never/RB, heard/VBN, of/IN, again/RB, ./.
+Always/NNP, thought/VBD, the/DT, Bolshies/NNPS, had/VBD, done/VBN, him/PRP, in/IN, ./., ''/''
+``/``, It/PRP, all/DT, fits/NNS, in/IN, ,/,, ''/'', said/VBD, Poirot/NNP, ,/,, when/WRB, Japp/NNP, had/VBD, taken/VBN, his/PRP$, leave/NN, ,/,, ``/``, except/IN, for/IN, the/DT, fact/NN, that/IN, he/PRP, seems/VBZ, to/TO, have/VB, died/VBN, a/DT, natural/JJ, death/NN, ./., ''/''
+He/PRP, stood/VBD, looking/VBG, down/RP, on/IN, the/DT, motionless/JJ, figure/NN, with/IN, a/DT, dissatisfied/JJ, frown/NN, ./.
+A/DT, puff/NN, of/IN, wind/NN, set/VBD, the/DT, window-curtains/NNS, flying/VBG, out/RP, ,/,, and/CC, he/PRP, looked/VBD, up/RP, sharply/RB, ./.
+``/``, I/PRP, suppose/VBP, you/PRP, opened/VBD, the/DT, windows/NNS, when/WRB, you/PRP, laid/VBD, him/PRP, down/RP, on/IN, the/DT, bed/NN, ,/,, Hastings/NNP, ?/., ''/''
+``/``, No/UH, ,/,, I/PRP, did/VBD, n't/RB, ,/,, ''/'', I/PRP, replied/VBD, ./.
+``/``, As/RB, far/RB, as/IN, I/PRP, remember/VBP, ,/,, they/PRP, were/VBD, shut/VBN, ./., ''/''
+Poirot/NNP, lifted/VBD, his/PRP$, head/NN, suddenly/RB, ./.
+``/``, Shut/VB, --/:, and/CC, now/RB, they/PRP, are/VBP, open/JJ, ./.
+What/WP, can/MD, that/DT, mean/NN, ?/., ''/''
+``/``, Somebody/NN, came/VBD, in/IN, that/DT, way/NN, ,/,, ''/'', I/PRP, suggested/VBD, ./.
+``/``, Possibly/RB, ,/,, ''/'', agreed/VBD, Poirot/NNP, ,/,, but/CC, he/PRP, spoke/VBD, absently/RB, and/CC, without/IN, conviction/NN, ./.
+After/IN, a/DT, minute/NN, or/CC, two/CD, he/PRP, said/VBD, :/:, ``/``, That/DT, is/VBZ, not/RB, exactly/RB, the/DT, point/NN, I/PRP, had/VBD, in/IN, mind/NN, ,/,, Hastings/NNP, ./.
+If/IN, only/RB, one/CD, window/NN, was/VBD, open/JJ, it/PRP, would/MD, not/RB, intrigue/VB, me/PRP, so/RB, much/JJ, ./.
+It/PRP, is/VBZ, both/DT, windows/NNS, being/VBG, open/JJ, that/WDT, strikes/VBZ, me/PRP, as/IN, curious/JJ, ./., ''/''
+He/PRP, hurried/VBD, into/IN, the/DT, other/JJ, room/NN, ./.
+``/``, The/DT, sitting/VBG, room/NN, window/NN, is/VBZ, open/JJ, ,/,, too/RB, ./.
+That/DT, also/RB, we/PRP, left/VBD, shut/VBN, ./.
+Ah/UH, !/., ''/''
+He/PRP, bent/JJ, over/IN, the/DT, dead/JJ, man/NN, ,/,, examining/VBG, the/DT, corners/NNS, of/IN, the/DT, mouth/NN, minutely/RB, ./.
+Then/RB, he/PRP, looked/VBD, up/RP, suddenly/RB, ./.
+``/``, He/PRP, has/VBZ, been/VBN, gagged/VBN, ,/,, Hastings/NNP, ./.
+Gagged/VBN, and/CC, then/RB, poisoned/VBN, ./., ''/''
+``/``, Good/JJ, heavens/NNS, !/., ''/''
+I/PRP, exclaimed/VBD, ,/,, shocked/JJ, ./.
+``/``, I/PRP, suppose/VBP, we/PRP, shall/MD, find/VB, out/RP, all/DT, about/IN, it/PRP, from/IN, the/DT, post-mortem/NN, ./., ''/''
+``/``, We/PRP, shall/MD, find/VB, out/RP, nothing/NN, ./.
+He/PRP, was/VBD, killed/VBN, by/IN, inhaling/VBG, strong/JJ, prussic/JJ, acid/NN, ./.
+It/PRP, was/VBD, jammed/VBN, right/RB, under/IN, his/PRP$, nose/NN, ./.
+Then/RB, the/DT, murderer/NN, went/VBD, away/RB, again/RB, ,/,, first/RB, opening/VBG, all/PDT, the/DT, windows/NNS, ./.
+Hydrocyanic/JJ, acid/NN, is/VBZ, exceedingly/RB, volatile/JJ, ,/,, but/CC, it/PRP, has/VBZ, a/DT, pronounced/JJ, smell/NN, of/IN, bitter/JJ, almonds/NNS, ./.
+With/IN, no/DT, trace/VBP, of/IN, the/DT, smell/NN, to/TO, guide/VB, them/PRP, ,/,, and/CC, no/DT, suspicion/NN, of/IN, foul/JJ, play/NN, ,/,, death/NN, would/MD, be/VB, put/VBN, down/RP, to/TO, some/DT, natural/JJ, cause/NN, by/IN, the/DT, doctors/NNS, ./.
+So/RB, this/DT, man/NN, was/VBD, in/IN, the/DT, Secret/NNP, Service/NNP, ,/,, Hastings/NNP, ./.
+And/CC, five/CD, years/NNS, ago/IN, he/PRP, disappeared/VBD, in/IN, Russia/NNP, ./., ''/''
+``/``, The/DT, last/JJ, two/CD, years/NNS, he/PRP, 's/VBZ, been/VBN, in/IN, the/DT, Asylum/NN, ,/,, ''/'', I/PRP, said/VBD, ./.
+``/``, But/CC, what/WP, of/IN, the/DT, three/CD, years/NNS, before/IN, that/DT, ?/., ''/''
+Poirot/NNP, shook/VBD, his/PRP$, head/NN, ,/,, and/CC, then/RB, caught/VBD, my/PRP$, arm/NN, ./.
+``/``, The/DT, clock/NN, ,/,, Hastings/NNP, ,/,, look/NN, at/IN, the/DT, clock/NN, ./., ''/''
+I/PRP, followed/VBD, his/PRP$, gaze/VB, to/TO, the/DT, mantelpiece/NN, ./.
+The/DT, clock/NN, had/VBD, stopped/VBN, at/IN, four/CD, o'clock/RB, ./.
+``/``, Mon/FW, ami/FW, ,/,, someone/NN, has/VBZ, tampered/VBN, with/IN, it/PRP, ./.
+It/PRP, had/VBD, still/RB, three/CD, days/NNS, to/TO, run/VB, ./.
+It/PRP, is/VBZ, an/DT, eight-day/JJ, clock/NN, ,/,, you/PRP, comprehend/VBP, ?/., ''/''
+``/``, But/CC, what/WP, should/MD, they/PRP, want/VBP, to/TO, do/VB, that/DT, for/IN, ?/.
+Some/DT, idea/NN, of/IN, a/DT, false/JJ, scent/NN, by/IN, making/VBG, the/DT, crime/NN, appear/VBP, to/TO, have/VB, taken/VBN, place/NN, at/IN, four/CD, o'clock/RB, ?/., ''/''
+``/``, No/UH, ,/,, no/DT, ;/:, rearrange/VB, your/PRP$, ideas/NNS, ,/,, mon/FW, ami/FW, ./.
+Exercise/VB, your/PRP$, little/JJ, grey/JJ, cells/NNS, ./.
+You/PRP, are/VBP, Mayerling/VBG, ./.
+You/PRP, hear/VBP, something/NN, ,/,, perhaps/RB, --/:, and/CC, you/PRP, know/VBP, well/RB, enough/RB, that/IN, your/PRP$, doom/NN, is/VBZ, sealed/VBN, ./.
+You/PRP, have/VBP, just/RB, time/NN, to/TO, leave/VB, a/DT, sign/NN, ./.
+Four/CD, o'clock/RB, ,/,, Hastings/NNP, ./.
+Number/NNP, Four/NNP, ,/,, the/DT, destroyer/NN, ./.
+Ah/UH, !/.
+an/DT, idea/NN, !/., ''/''
+He/PRP, rushed/VBD, into/IN, the/DT, other/JJ, room/NN, and/CC, seized/VBD, the/DT, telephone/NN, ./.
+He/PRP, asked/VBD, for/IN, Hanwell/NNP, ./.
+``/``, You/PRP, are/VBP, the/DT, Asylum/NNP, ,/,, yes/UH, ,/,, I/PRP, understand/VBP, there/EX, has/VBZ, been/VBN, an/DT, escape/NN, today/NN, ?/.
+What/WP, is/VBZ, that/IN, you/PRP, say/VBP, ?/.
+A/DT, little/JJ, moment/NN, ,/,, if/IN, you/PRP, please/VBP, ./.
+Will/MD, you/PRP, repeat/VB, that/DT, ?/.
+Ah/UH, !/.
+parfaitement/NN, ./., ''/''
+He/PRP, hung/VBD, up/RP, the/DT, receiver/NN, ,/,, and/CC, turned/VBD, to/TO, me/PRP, ./.
+``/``, You/PRP, heard/VBD, ,/,, Hastings/NNP, ?/.
+There/EX, has/VBZ, been/VBN, no/DT, escape/NN, ./., ''/''
+``/``, But/CC, the/DT, man/NN, who/WP, came/VBD, --/:, the/DT, keeper/NN, ?/., ''/''
+I/PRP, said/VBD, ./.
+``/``, I/PRP, wonder/VBP, --/:, I/PRP, very/RB, much/JJ, wonder/NN, ./., ''/''
+``/``, You/PRP, mean/VBP, --/:, ?/., ''/''
+``/``, Number/NNP, Four/NNP, --/:, the/DT, destroyer/NN, ./., ''/''
+I/PRP, gazed/VBD, at/IN, Poirot/NNP, dumbfounded/JJ, ./.
+A/DT, minute/NN, or/CC, two/CD, after/IN, ,/,, on/IN, recovering/VBG, my/PRP$, voice/NN, ,/,, I/PRP, said/VBD, :/:, ``/``, We/PRP, shall/MD, know/VB, him/PRP, again/RB, ,/,, anywhere/RB, ,/,, that/DT, 's/VBZ, one/CD, thing/NN, ./.
+He/PRP, was/VBD, a/DT, man/NN, of/IN, very/RB, pronounced/JJ, personality/NN, ./., ''/''
+``/``, Was/VBD, he/PRP, ,/,, mon/FW, ami/FW, !/.
+I/PRP, think/VBP, not/RB, ./.
+He/PRP, was/VBD, burly/JJ, and/CC, bluff/JJ, and/CC, red-faced/JJ, ,/,, with/IN, a/DT, thick/JJ, moustache/NN, and/CC, a/DT, hoarse/JJ, voice/NN, ./.
+He/PRP, will/MD, be/VB, none/NN, of/IN, those/DT, things/NNS, by/IN, this/DT, time/NN, ,/,, and/CC, for/IN, the/DT, rest/NN, ,/,, he/PRP, has/VBZ, nondescript/JJ, eyes/NNS, ,/,, nondescript/JJ, ears/NNS, ,/,, and/CC, a/DT, perfect/JJ, set/NN, of/IN, false/JJ, teeth/NNS, ./.
+Identification/NN, is/VBZ, not/RB, such/JJ, an/DT, easy/JJ, matter/NN, as/IN, you/PRP, seem/VBP, to/TO, think/VB, ./.
+Next/JJ, time/NN, --/:, ''/'', ``/``, You/PRP, think/VBP, there/EX, will/MD, be/VB, a/DT, next/JJ, time/NN, ?/., ''/''
+I/PRP, interrupted/VBD, ./.
+Poirot/NNP, 's/POS, face/NN, grew/VBD, very/RB, grave/JJ, ./.
+``/``, It/PRP, is/VBZ, a/DT, duel/NN, to/TO, the/DT, death/NN, ,/,, mon/FW, ami/FW, ./.
+You/PRP, and/CC, I/PRP, on/IN, the/DT, one/CD, side/NN, ,/,, the/DT, Big/NNP, Four/CD, on/IN, the/DT, other/JJ, ./.
+They/PRP, have/VBP, won/VBN, the/DT, first/JJ, trick/NN, ;/:, but/CC, they/PRP, have/VBP, failed/VBN, in/IN, their/PRP$, plan/NN, to/TO, get/VB, me/PRP, out/IN, of/IN, the/DT, way/NN, ,/,, and/CC, in/IN, the/DT, future/NN, they/PRP, have/VBP, to/TO, reckon/VB, with/IN, Hercule/NNP, Poirot/NNP, !/., ''/''
