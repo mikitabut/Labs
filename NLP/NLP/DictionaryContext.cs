@@ -17,7 +17,7 @@ namespace NLP
 
         public void AddText(Text text)
         {
-            if (!Texts.Contains(text))
+            if (!Texts.Any(x => x.Path == text.Path))
             {
                 Texts.Add(text);
                 SaveChanges();

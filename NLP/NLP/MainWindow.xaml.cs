@@ -37,14 +37,15 @@ namespace NLP
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-            var openFileDialog = new OpenFileDialog { Multiselect = true };
+            var openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
-                db.AddText(new Text(openFileDialog.FileName));
-                string taggedText = File.ReadAllText(openFileDialog.FileName);
+                string filePath = openFileDialog.FileName;
+                db.AddText(new Text(filePath));
+                string text = TextIsTagged(filePath) ? File.ReadAllText(filePath) : Tagger.TagText(filePath);
                 int counter = 0;
-                IEnumerable<Match> words = Regex.Matches(taggedText, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>();
-                foreach (var match in words)
+                IEnumerable<Match> matches = Regex.Matches(text, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>();
+                foreach (var match in matches)
                 {
                     string word = match.Groups["word"].Value;
                     string tag = match.Groups["tag"].Value;
@@ -59,12 +60,19 @@ namespace NLP
                     }
 
                     counter++;
-                    ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / words.Count(), DispatcherPriority.Background);
+                    ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / matches.Count(), DispatcherPriority.Background);
                 }
 
                 Task.Factory.StartNew(() => SaveWordDictionary());
                 StatusLine.Text = $"{openFileDialog.FileName} has been parsed.";
             }
+        }
+
+        private bool TextIsTagged(string filePath)
+        {
+            string firstLine = new StreamReader(filePath).ReadLine();
+            string firstWord = firstLine.Split(' ').FirstOrDefault();
+            return Regex.IsMatch(firstWord, @"[a-zA-Z-—']*\/[a-zA-Z?$]*");
         }
 
         private void SaveWordDictionary()
@@ -137,19 +145,9 @@ namespace NLP
             }
         }
 
-        private void AnalyzeAllTexts_Click(object sender, RoutedEventArgs e)
-        {
-            Tagger.TagTexts(db.Texts.Where(x => x.IsTagged == 0).ToList());
-            db.Texts.ToList().ForEach(x => x.IsTagged = 1);
-            db.SaveChanges();
-            StatusLine.Text = $"All texts has been analysed.";
-        }
-
         #endregion
 
         #region Supporting functions
-
-        private void ClearWordsDatabase() => db.Database.ExecuteSqlCommand("DELETE FROM [Words]");
 
         private void UpdateWordDictionary(List<Word> list)
         {

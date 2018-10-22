@@ -138,4 +138,3 @@ C:\Users\MariaKoliadich\source\repos\Labs\NLP\NLP\bin\Debug\IKVM.Runtime.JNI.dll
 C:\Users\MariaKoliadich\source\repos\Labs\NLP\NLP\bin\Debug\NLog.dll
 C:\Users\MariaKoliadich\source\repos\Labs\NLP\NLP\bin\Debug\stanford-postagger-3.9.1.dll
 C:\Users\MariaKoliadich\source\repos\Labs\NLP\NLP\bin\Debug\NLog.xml
-C:\Users\MariaKoliadich\source\repos\Labs\NLP\NLP\obj\Debug\NLP.csprojAssemblyReference.cache
