@@ -18,6 +18,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
             <MenuItem Name="OpenFile" Header="Open file" Click="OpenFile_Click"></MenuItem>
+            <MenuItem Name="GenerateRSA" Header="Generate RSA" Click="GenerateRSA_Click"></MenuItem>
         </Menu>
         <TextBlock Name="FileNameTB" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center"/>
         <Button  Grid.Row="2" Grid.Column="0" Name="Encode" Click="Encode_Click" Margin="15">Encode</Button>
