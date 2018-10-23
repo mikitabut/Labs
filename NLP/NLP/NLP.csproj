@@ -187,6 +187,7 @@
     </ApplicationDefinition>
     <Compile Include="DictionaryContext.cs" />
     <Compile Include="Tagger.cs" />
+    <Compile Include="Text.cs" />
     <Compile Include="Word.cs" />
     <Compile Include="WordEditingModalWindow.xaml.cs">
       <DependentUpon>WordEditingModalWindow.xaml</DependentUpon>

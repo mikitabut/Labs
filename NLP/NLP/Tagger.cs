@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using edu.stanford.nlp.tagger.maxent;
 using java.util;
-using edu.stanford.nlp.tagger.maxent;
+using System;
+using System.Collections.Generic;
 using System.IO;
-using File = System.IO.File;
 
 namespace NLP
 {
     public class Tagger
     {
-        public static void TagTexts(List<string> files) => files.ForEach(x => TagText(x));
+        public static void TagTexts(List<Text> texts) => texts.ForEach(x => TagText(x.Path));
 
         public static string TagText(string filePath)
         {
@@ -25,12 +24,8 @@ namespace NLP
                 taggedText += taggedSentence + Environment.NewLine;
             }
 
-            File.WriteAllText(MarkAsTagged(filePath, $"_Tagged"), taggedText);
+            File.WriteAllText(filePath, taggedText);
             return taggedText;
         }
-
-        private static string MarkAsTagged(string filePath, string line) =>
-            Path.Combine(Path.GetDirectoryName(filePath),
-                Path.GetFileNameWithoutExtension(filePath) + line + Path.GetExtension(filePath));
     }
 }

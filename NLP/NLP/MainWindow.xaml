@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NLP" mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="640" ResizeMode="NoResize">
+        Title="NLP" Height="600" Width="640" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -22,17 +22,19 @@
             <MenuItem Name="OpenFile" Header="Open file" Click="OpenFile_Click"></MenuItem>
             <MenuItem Name="ClearDatabase" Header="Clear database" Click="ClearDatabase_Click"></MenuItem>
             <MenuItem Name="UpdateWord" Header="Update Word" Click="UpdateWord_Click"></MenuItem>
-            <MenuItem Name="AnalyzeText" Header="Analyze text" Click="AnalyzeText_Click"></MenuItem>
         </Menu>
-        <ListView Name="WordDictionaryListView" Grid.Row="1" Grid.ColumnSpan="4" 
+        <ListView Name="WordDictionaryListView" Grid.Row="1" Grid.ColumnSpan="4"
                   ItemsSource="{Binding Path=WordDictionary, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="296" DisplayMemberBinding="{Binding Name}">
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding Name}">
                         <GridViewColumnHeader Name="NameTableHeader" Content="Name" Click="NameTableHeader_Click"/>
                     </GridViewColumn>
-                    <GridViewColumn Width="296" DisplayMemberBinding="{Binding Amount}">
+                    <GridViewColumn Width="199" DisplayMemberBinding="{Binding Amount}">
                         <GridViewColumnHeader Name="AmountTableHeader" Content="Amount" Click="AmountTableHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="199" DisplayMemberBinding="{Binding Tags}">
+                        <GridViewColumnHeader Name="TagsTableHeader" Content="Tags" Click="TagsTableHeader_Click"/>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
