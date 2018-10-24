@@ -41,7 +41,7 @@ namespace lab2
             string directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName;
             RsaGenerator.Generate();
             //var bytes = new byte()[];
-            //File.WriteAllBytes(Path.Combine(directory, "RSA.txt"), bytes);
+            //File.WriteAllBytes(Path.Combine(directory, "MyRSA.txt"), bytes);
         }
 
         private void Encode_Click(object sender, RoutedEventArgs e)
