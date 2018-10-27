@@ -1,6 +1,0 @@
-C:\Users\Andrey\Documents\Visual Studio 2017\Projects\Labs\ISM\lab3\lab3\bin\Debug\lab3.exe.config
-C:\Users\Andrey\Documents\Visual Studio 2017\Projects\Labs\ISM\lab3\lab3\bin\Debug\lab3.exe
-C:\Users\Andrey\Documents\Visual Studio 2017\Projects\Labs\ISM\lab3\lab3\bin\Debug\lab3.pdb
-C:\Users\Andrey\Documents\Visual Studio 2017\Projects\Labs\ISM\lab3\lab3\obj\Debug\lab3.csproj.CoreCompileInputs.cache
-C:\Users\Andrey\Documents\Visual Studio 2017\Projects\Labs\ISM\lab3\lab3\obj\Debug\lab3.exe
-C:\Users\Andrey\Documents\Visual Studio 2017\Projects\Labs\ISM\lab3\lab3\obj\Debug\lab3.pdb
