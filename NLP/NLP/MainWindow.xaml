@@ -22,6 +22,7 @@
             <MenuItem Name="OpenFile" Header="Open file" Click="OpenFile_Click"></MenuItem>
             <MenuItem Name="ClearDatabase" Header="Clear database" Click="ClearDatabase_Click"></MenuItem>
             <MenuItem Name="UpdateWord" Header="Update Word" Click="UpdateWord_Click"></MenuItem>
+            <MenuItem Header="Classes info" Click="ClassesInfo_Click"></MenuItem>
         </Menu>
         <ListView Name="WordDictionaryListView" Grid.Row="1" Grid.ColumnSpan="4"
                   ItemsSource="{Binding Path=WordDictionary, Mode=TwoWay}">

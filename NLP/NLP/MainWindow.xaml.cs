@@ -173,6 +173,11 @@ namespace NLP
         }
 
         #endregion
+
+        private void ClassesInfo_Click(object sender, RoutedEventArgs e)
+        {
+            new ClassesWindow().Show();
+        }
     }
 
     public enum SortingType
