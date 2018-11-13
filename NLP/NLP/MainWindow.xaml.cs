@@ -20,7 +20,8 @@ namespace NLP
         DictionaryContext db = new DictionaryContext();
         public ObservableCollection<Word> WordDictionary { get; set; } = new ObservableCollection<Word>();
 
-        public SortingType CurrentSortingType { get; set; } = SortingType.None;
+        public Func<IEnumerable<Word>, IEnumerable<Word>> OrderFunc { get; set; } = x => x;
+        public bool OrderAsc { get; set; } = true;
 
         public string CurrentText { get; set; }
 
@@ -104,44 +105,97 @@ namespace NLP
 
         private void NameTableHeader_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentSortingType == SortingType.NameAscending)
+            if (OrderAsc)
             {
-                CurrentSortingType = SortingType.NameDescending;
-                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Name).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Name);
+                OrderAsc = false;
+
             }
             else
             {
-                CurrentSortingType = SortingType.NameAscending;
-                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Name).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Name);
+                OrderAsc = true;
             }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
         }
 
         private void AmountTableHeader_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentSortingType == SortingType.AmountDescending)
+            if (OrderAsc)
             {
-                CurrentSortingType = SortingType.AmountAscending;
-                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Amount).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Amount);
+                OrderAsc = false;
+
             }
             else
             {
-                CurrentSortingType = SortingType.AmountDescending;
-                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Amount).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Amount);
+                OrderAsc = true;
             }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
         }
 
         private void TagsTableHeader_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentSortingType == SortingType.TagsAscending)
+            if (OrderAsc)
             {
-                CurrentSortingType = SortingType.TagsDescending;
-                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Tags).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Tags);
+                OrderAsc = false;
+
             }
             else
             {
-                CurrentSortingType = SortingType.TagsAscending;
-                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Tags).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Tags);
+                OrderAsc = true;
             }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
+        }
+
+        private void CanonicalTableHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (OrderAsc)
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Canonical);
+                OrderAsc = false;
+
+            }
+            else
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Canonical);
+                OrderAsc = true;
+            }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
+        }
+
+        private void FilesTableHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (OrderAsc)
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Files);
+                OrderAsc = false;
+
+            }
+            else
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Files);
+                OrderAsc = true;
+            }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
         }
 
         private void UpdateWord_Click(object sender, RoutedEventArgs e)
@@ -223,6 +277,12 @@ namespace NLP
             }
 
             var word = view.SelectedItem as Word;
+
+            if (word == null)
+            {
+                return;
+            }
+
             var result = new EditWordWindow(db, word).ShowDialog();
 
             if (result == true)
@@ -233,26 +293,17 @@ namespace NLP
 
         private void AddWord_Click(object sender, RoutedEventArgs e)
         {
-            var word = new Word("", 0, "", "");
+            var word = new Word("", 0, "", "manual");
 
             var result = new EditWordWindow(db, word).ShowDialog();
 
             if (result == true)
             {
                 db.Words.Add(word);
+                WordDictionary.Add(word);
+                UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
                 db.SaveChanges();
             }
         }
-    }
-
-    public enum SortingType
-    {
-        NameAscending,
-        NameDescending,
-        AmountAscending,
-        AmountDescending,
-        TagsAscending,
-        TagsDescending,
-        None
     }
 }

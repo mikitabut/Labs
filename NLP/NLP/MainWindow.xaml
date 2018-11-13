@@ -40,10 +40,10 @@
                         <GridViewColumnHeader Name="TagsTableHeader" Content="Tags" Click="TagsTableHeader_Click"/>
                     </GridViewColumn>
                     <GridViewColumn Width="199" DisplayMemberBinding="{Binding Canonical}">
-                        <GridViewColumnHeader Name="CanonicalTableHeader" Content="Canonical" Click="TagsTableHeader_Click"/>
+                        <GridViewColumnHeader Name="CanonicalTableHeader" Content="Canonical" Click="CanonicalTableHeader_Click"/>
                     </GridViewColumn>
                     <GridViewColumn Width="199" DisplayMemberBinding="{Binding Files}">
-                        <GridViewColumnHeader Name="FilesTableHeader" Content="Files" Click="TagsTableHeader_Click"/>
+                        <GridViewColumnHeader Name="FilesTableHeader" Content="Files" Click="FilesTableHeader_Click"/>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
