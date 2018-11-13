@@ -200,6 +200,9 @@
     <Compile Include="Tagger.cs" />
     <Compile Include="Text.cs" />
     <Compile Include="Word.cs" />
+    <Compile Include="EditWordWindow.xaml.cs">
+      <DependentUpon>EditWordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WordEditingModalWindow.xaml.cs">
       <DependentUpon>WordEditingModalWindow.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="EditWordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WordEditingModalWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

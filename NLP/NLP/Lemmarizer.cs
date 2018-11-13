@@ -28,6 +28,11 @@ namespace NLP
 
         private static string GetCategory(Word word)
         {
+            if (word.TagsArr.Length == 0 || word.TagsArr.First().Length == 0)
+            {
+                return null;
+            }
+
             return word.TagsArr
                 .Select(x=> x[0].ToString())
                 .FirstOrDefault(x=> x == "N" || x == "V" || x == "J");

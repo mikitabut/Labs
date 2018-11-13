@@ -7,10 +7,11 @@
         Title="NLP" Height="800" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="298*"/>
+            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="269*"/>
+            <ColumnDefinition Width="298*"/>
+            <ColumnDefinition Width="298*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -18,13 +19,14 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0" Grid.ColumnSpan="4">
+        <Menu Grid.Row="0" Grid.ColumnSpan="5">
             <MenuItem Name="OpenFile" Header="Open file" Click="OpenFile_Click"></MenuItem>
             <MenuItem Name="ClearDatabase" Header="Clear database" Click="ClearDatabase_Click"></MenuItem>
-            <MenuItem Name="UpdateWord" Header="Update Word" Click="UpdateWord_Click"></MenuItem>
+            <MenuItem Name="UpdateWord" Header="Merge word" Click="UpdateWord_Click"></MenuItem>
             <MenuItem Header="Tags info" Click="ClassesInfo_Click"></MenuItem>
+            <MenuItem Header="Add word" Click="AddWord_Click"></MenuItem>
         </Menu>
-        <ListView Name="WordDictionaryListView" Grid.Row="1" Grid.ColumnSpan="4"
+        <ListView Name="WordDictionaryListView" Grid.Row="1" Grid.ColumnSpan="5" MouseDoubleClick="WordDictionaryListView_OnMouseDoubleClick"
                   ItemsSource="{Binding Path=WordDictionary, Mode=TwoWay}">
             <ListView.View>
                 <GridView>
@@ -46,8 +48,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ProgressBar Name="ProgressBar" Grid.Row="2" Grid.ColumnSpan="4" Minimum="0" Maximum="100"></ProgressBar>
-        <TextBlock Name="StatusLine" Grid.Row="3" Grid.ColumnSpan="4" VerticalAlignment="Center" Padding="5"></TextBlock>
+        <ProgressBar Name="ProgressBar" Grid.Row="2" Grid.ColumnSpan="5" Minimum="0" Maximum="100"></ProgressBar>
+        <TextBlock Name="StatusLine" Grid.Row="3" Grid.ColumnSpan="5" VerticalAlignment="Center" Padding="5" Margin="0,2"></TextBlock>
     </Grid>
 </Window>
     

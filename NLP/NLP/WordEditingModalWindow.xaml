@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NLP" mc:Ignorable="d"
         Height="150" Width="270" ResizeMode="NoResize"
-        Title="Word editing" WindowStartupLocation="CenterScreen">
+        Title="Merge words" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

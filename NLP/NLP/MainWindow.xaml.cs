@@ -11,7 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using NLog;
 using System.Threading.Tasks;
-using EdgeJs;
+using System.Windows.Input;
 
 namespace NLP
 {
@@ -213,6 +213,35 @@ namespace NLP
         private void ClassesInfo_Click(object sender, RoutedEventArgs e)
         {
             new ClassesWindow().Show();
+        }
+
+        private void WordDictionaryListView_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is ListView view))
+            {
+                return;
+            }
+
+            var word = view.SelectedItem as Word;
+            var result = new EditWordWindow(db, word).ShowDialog();
+
+            if (result == true)
+            {
+                db.SaveChanges();
+            }
+        }
+
+        private void AddWord_Click(object sender, RoutedEventArgs e)
+        {
+            var word = new Word("", 0, "", "");
+
+            var result = new EditWordWindow(db, word).ShowDialog();
+
+            if (result == true)
+            {
+                db.Words.Add(word);
+                db.SaveChanges();
+            }
         }
     }
 
