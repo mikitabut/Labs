@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -12,10 +12,7 @@ namespace lab3
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
 
         private void CalculateSHA1_Click(object sender, RoutedEventArgs e)
         {
@@ -24,28 +21,40 @@ namespace lab3
             {
                 byte[] bytes = File.ReadAllBytes(openFileDialog.FileName);
                 bytes = FillFinishBytes(bytes);
-                //BitArray qwe =
 
+                string path = Path.Combine(Path.GetDirectoryName(openFileDialog.FileName), "SHA-1 results.txt");
+                File.AppendAllText(path, openFileDialog.SafeFileName + " - " + DateTime.Now + " - " + 
+                    BitConverter.ToString(bytes).Replace("-", String.Empty) + Environment.NewLine);
             }
         }
 
         private byte[] FillFinishBytes(byte[] bytes)
         {
-            long length = bytes.LongLength;
-            var lengthInBytes = BitConverter.GetBytes(bytes.LongLength);
+            var lengthInBytes = BitConverter.GetBytes(bytes.LongLength).Reverse();
             var additionalBits = GetAdditionalBits(bytes.Length % 64);
+            var result = bytes.ToList();
+            result.AddRange(additionalBits);
+            result.AddRange(lengthInBytes);
+            return result.ToArray();
         }
 
         private byte[] GetAdditionalBits(int lastFragmentBytesAmount)
         {
-            byte[] firstByte = BitConverter.GetBytes(128); //1000 0000
-            byte[] zeroByte = BitConverter.GetBytes(0);    //0000 0000
-            byte[] result;
+            byte firstByte = BitConverter.GetBytes(128).First(); //1000 0000
+            byte zeroByte = BitConverter.GetBytes(0).First();    //0000 0000
+            List<byte> result = new List<byte>();
             if (lastFragmentBytesAmount < 56)
             {
-                result = firstByte;
-                result.Concat(Enumerable.Repeat(zeroByte, 2).ToArray());
+                result.Add(firstByte);
+                result.AddRange(Enumerable.Repeat(zeroByte, 55 - lastFragmentBytesAmount));
             }
+            else if (lastFragmentBytesAmount > 56)
+            {
+                result.Add(firstByte);
+                result.AddRange(Enumerable.Repeat(zeroByte, 119 - lastFragmentBytesAmount));
+            }
+
+            return result.ToArray();
         }
     }
 }
