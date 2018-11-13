@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NLP"
         mc:Ignorable="d"
-        Title="ClassesWindow" Height="450" Width="800" Initialized="Window_Initialized">
+        Title="ClassesWindow" Height="700" Width="1200" Initialized="Window_Initialized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Name="MainImage" HorizontalAlignment="Left" Margin="241,189,0,0" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="2"/>
-
+        <Image Name="MainImage" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Source="resources/classes0.png"/>
+        <Button Name="BackButton" Content="Back" Grid.Column="0" Grid.Row="1" Click="BackButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10,1"></Button>
+        <Button Name="NextButton" Content="Next" Grid.Column="1" Grid.Row="1" Click="NextButton_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10,1"></Button>
     </Grid>
 </Window>
