@@ -25,7 +25,7 @@ namespace NLP
         }
 
         private int _picNumber = 0;
-        private const int PicCount = 7;
+        private const int PicCount = 8;
 
         private void Window_Initialized(object sender, EventArgs e)
         {
