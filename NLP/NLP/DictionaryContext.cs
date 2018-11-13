@@ -13,7 +13,6 @@ namespace NLP
 
         public void TruncateWords()
         {
-            //Database.ExecuteSqlCommand("DELETE FROM [WordsInTexts]");
             Database.ExecuteSqlCommand("DELETE FROM [Words]");
         }
 
