@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using NLog;
 using System.Threading.Tasks;
+using EdgeJs;
 
 namespace NLP
 {

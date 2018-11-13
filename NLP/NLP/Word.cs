@@ -87,12 +87,12 @@ namespace NLP
             Amount = amount;
             tags = tag;
             files = file;
-            Canonical = ToCanonical(name);
+            Canonical = ToCanonical(name, tags);
         }
 
-        private static string ToCanonical(string form)
+        private static string ToCanonical(string form, string tags)
         {
-            return form;
+            return Lemmatizer.Lemmatize(new Word{Tags = tags, Name = form});
         }
 
         public void IncrementAmountAndAddNewTagAndFile(string newTag, string newFile)
