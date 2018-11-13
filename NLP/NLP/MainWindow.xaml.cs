@@ -44,7 +44,11 @@ namespace NLP
                 db.AddText(new Text(filePath));
                 string text = TextIsTagged(filePath) ? File.ReadAllText(filePath) : Tagger.TagText(filePath);
                 int counter = 0;
-                IEnumerable<Match> matches = Regex.Matches(text, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>();
+                var matches = Regex.Matches(text, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>()
+                    .ToArray();
+
+                var fileName = Path.GetFileName(filePath);
+
                 foreach (var match in matches)
                 {
                     string word = match.Groups["word"].Value;
@@ -52,16 +56,22 @@ namespace NLP
                     var currentWord = WordDictionary.FirstOrDefault(x => x.Name == word);
                     if (currentWord == null)
                     {
-                        WordDictionary.Add(new Word(word, 1, tag));
+                        WordDictionary.Add(new Word(word, 1, tag, fileName));
                     }
                     else
                     {
-                        currentWord.IncrementAmountAndAddNewTag(tag);
+                        currentWord.IncrementAmountAndAddNewTagAndFile(tag, fileName);
                     }
 
                     counter++;
-                    ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / matches.Count(), DispatcherPriority.Background);
+
+                    if (counter % 100 == 0)
+                    {
+                        var progress = counter * 100.0 / matches.Length;
+                        ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = progress, DispatcherPriority.Background);
+                    }
                 }
+                ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = 0.0, DispatcherPriority.Background);
 
                 Task.Factory.StartNew(() => SaveWordDictionary());
                 StatusLine.Text = $"{openFileDialog.FileName} has been parsed.";
@@ -70,7 +80,7 @@ namespace NLP
 
         private bool TextIsTagged(string filePath)
         {
-            string firstLine = new StreamReader(filePath).ReadLine();
+            string firstLine = File.ReadLines(filePath).First();
             string firstWord = firstLine.Split(' ').FirstOrDefault();
             return Regex.IsMatch(firstWord, @"[a-zA-Z-—']*\/[a-zA-Z?$]*");
         }
@@ -136,13 +146,38 @@ namespace NLP
         private void UpdateWord_Click(object sender, RoutedEventArgs e)
         {
             var modalWindow = new WordEditingModalWindow();
-            if (modalWindow.ShowDialog() == true)
+            if (modalWindow.ShowDialog() != true)
             {
-                if (modalWindow.NewWordTextBox.Text != String.Empty && modalWindow.OldWordTextBox.Text != String.Empty)
-                {
-                    db.Texts.ToList().ForEach(x => ReplaceWord(x.Path, modalWindow.OldWordTextBox.Text, modalWindow.NewWordTextBox.Text));
-                }
+                return;
             }
+
+            var newName = modalWindow.NewWordTextBox.Text;
+            var oldName = modalWindow.OldWordTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(oldName) ||string.IsNullOrWhiteSpace(newName))
+            {
+                return;
+            }
+
+            db.Texts.ToList().ForEach(x => ReplaceWord(x.Path, oldName, newName));
+
+            var oldWordDbo = db.Words.First(x => x.Name == oldName);
+            var newWordDbo = db.Words.FirstOrDefault(x => x.Name == newName);
+
+            if (newWordDbo == null)
+            {
+                oldWordDbo.Name = newName;
+                WordDictionary.First(x => x.Id == oldWordDbo.Id).Name = newName;
+            }
+            else
+            {
+                newWordDbo.MergeWith(oldWordDbo);
+                db.Words.Remove(oldWordDbo);
+                
+                WordDictionary.Remove(WordDictionary.First(x => x.Id == oldWordDbo.Id));
+            }
+
+            db.SaveChanges();
         }
 
         #endregion

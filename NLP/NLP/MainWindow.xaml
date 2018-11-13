@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NLP" mc:Ignorable="d"
-        Title="NLP" Height="600" Width="640" ResizeMode="NoResize">
+        Title="NLP" Height="800" Width="1200">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -36,6 +36,12 @@
                     </GridViewColumn>
                     <GridViewColumn Width="199" DisplayMemberBinding="{Binding Tags}">
                         <GridViewColumnHeader Name="TagsTableHeader" Content="Tags" Click="TagsTableHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="199" DisplayMemberBinding="{Binding Canonical}">
+                        <GridViewColumnHeader Name="CanonicalTableHeader" Content="Canonical" Click="TagsTableHeader_Click"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="199" DisplayMemberBinding="{Binding Files}">
+                        <GridViewColumnHeader Name="FilesTableHeader" Content="Files" Click="TagsTableHeader_Click"/>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>

@@ -11,8 +11,6 @@ namespace NLP
 
         public DbSet<Text> Texts { get; set; }
 
-        public DbSet<WordInText> WordsInTexts { get; set; }
-
         public void TruncateWords()
         {
             //Database.ExecuteSqlCommand("DELETE FROM [WordsInTexts]");
