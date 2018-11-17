@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace lab1
@@ -14,13 +15,22 @@ namespace lab1
         public readonly string KnowledgeBasePath = Path.Combine(CurrentDirectory, "Knowledge base.txt");
 
         public List<Rule> Rules { get; set; } = new List<Rule>();
+        public Stack<string> Targets { get; set; } = new Stack<string>();
+        public Stack<string> Context { get; set; } = new Stack<string>();
+        public int CurrentRuleIndex { get; set; } = 1;
 
-        public MainWindow() => InitializeComponent();
-
-        private void Start_Click(object sender, RoutedEventArgs e)
+        public MainWindow()
         {
+            InitializeComponent();
             FillKnowledgeBase();
+            Targets.Push(Rules.First().Target.Key);
+        }
 
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            bool flag = false;
+            string key = Rules.ElementAt(CurrentRuleIndex).Properties.First().Key;
+            Label.Content = key;
         }
 
         private void FillKnowledgeBase()
