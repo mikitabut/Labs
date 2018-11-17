@@ -3,6 +3,8 @@ using java.util;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using com.sun.org.apache.xml.@internal.utils;
 
 namespace NLP
 {
@@ -13,7 +15,16 @@ namespace NLP
         public static string TagText(string filePath)
         {
             string text = File.ReadAllText(filePath);
-            string taggedText = String.Empty;
+
+            var taggedText = TagByStanford(text);
+
+            File.WriteAllText(filePath, taggedText);
+            return taggedText;
+        }
+
+        public static string TagByStanford(string text)
+        {
+            var taggedTextBuilder = new StringBuilder();
             var path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName + @"\POSTagger\models\wsj-0-18-bidirectional-nodistsim.tagger";
             var tagger = new MaxentTagger(path);
             var sentences = MaxentTagger.tokenizeText(new java.io.StringReader(text)).toArray();
@@ -21,11 +32,12 @@ namespace NLP
             foreach (ArrayList sentence in sentences)
             {
                 var taggedSentence = tagger.tagSentence(sentence).ToString().Trim('[', ']');
-                taggedText += taggedSentence + Environment.NewLine;
+                taggedTextBuilder
+                    .Append(taggedSentence)
+                    .Append(Environment.NewLine);
             }
 
-            File.WriteAllText(filePath, taggedText);
-            return taggedText;
+            return taggedTextBuilder.ToString();
         }
     }
 }

@@ -21,6 +21,18 @@ namespace NLP
             }
         }
 
+
+        private string canonical;
+        public string Canonical
+        {
+            get { return canonical; }
+            set
+            {
+                canonical = value;
+                OnPropertyChanged();
+            }
+        }
+
         private int amount;
         public int Amount
         {
@@ -33,6 +45,7 @@ namespace NLP
         }
 
         private string tags;
+
         public string Tags
         {
             get { return tags; }
@@ -43,6 +56,22 @@ namespace NLP
             }
         }
 
+        public string[] TagsArr => tags.Split(',');
+
+        private string files;
+
+        public string Files
+        {
+            get => files;
+            set
+            {
+                files = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string[] FilesArr => files.Split(',');
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged([CallerMemberName]string propertyName = null) =>
@@ -52,20 +81,42 @@ namespace NLP
 
         public Word() { }
 
-        public Word(string name, int amount, string tag)
+        public Word(string name, int amount, string tag, string file)
         {
             Name = name;
             Amount = amount;
             tags = tag;
+            files = file;
+            Canonical = ToCanonical(name, tags);
         }
 
-        public void IncrementAmountAndAddNewTag(string newTag)
+        private static string ToCanonical(string form, string tags)
+        {
+            return Lemmatizer.Lemmatize(new Word{Tags = tags, Name = form});
+        }
+
+        public void IncrementAmountAndAddNewTagAndFile(string newTag, string newFile)
         {
             Amount++;
             if (!tags.Split(',').Contains(newTag))
             {
                 tags += "," + newTag;
             }
+
+            if (!files.Split(',').Contains(newFile))
+            {
+                files += "," + newFile;
+            }
+        }
+
+        public void MergeWith(Word oldWordDbo)
+        {
+            var flies = oldWordDbo.FilesArr.Concat(FilesArr).Distinct();
+            var tags = oldWordDbo.TagsArr.Concat(TagsArr).Distinct();
+
+            Files = string.Join(",", flies);
+            Tags = string.Join(",", tags);
+            Amount += oldWordDbo.Amount;
         }
     }
 }

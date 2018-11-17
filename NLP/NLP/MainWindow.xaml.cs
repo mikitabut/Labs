@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Threading;
 using NLog;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace NLP
 {
@@ -19,7 +20,8 @@ namespace NLP
         DictionaryContext db = new DictionaryContext();
         public ObservableCollection<Word> WordDictionary { get; set; } = new ObservableCollection<Word>();
 
-        public SortingType CurrentSortingType { get; set; } = SortingType.None;
+        public Func<IEnumerable<Word>, IEnumerable<Word>> OrderFunc { get; set; } = x => x;
+        public bool OrderAsc { get; set; } = true;
 
         public string CurrentText { get; set; }
 
@@ -44,7 +46,11 @@ namespace NLP
                 db.AddText(new Text(filePath));
                 string text = TextIsTagged(filePath) ? File.ReadAllText(filePath) : Tagger.TagText(filePath);
                 int counter = 0;
-                IEnumerable<Match> matches = Regex.Matches(text, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>();
+                var matches = Regex.Matches(text, @"(?<word>[a-zA-Z][a-zA-Z-—']*)\/(?<tag>[a-zA-Z?$]*)").Cast<Match>()
+                    .ToArray();
+
+                var fileName = Path.GetFileName(filePath);
+
                 foreach (var match in matches)
                 {
                     string word = match.Groups["word"].Value;
@@ -52,16 +58,22 @@ namespace NLP
                     var currentWord = WordDictionary.FirstOrDefault(x => x.Name == word);
                     if (currentWord == null)
                     {
-                        WordDictionary.Add(new Word(word, 1, tag));
+                        WordDictionary.Add(new Word(word, 1, tag, fileName));
                     }
                     else
                     {
-                        currentWord.IncrementAmountAndAddNewTag(tag);
+                        currentWord.IncrementAmountAndAddNewTagAndFile(tag, fileName);
                     }
 
                     counter++;
-                    ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = counter * 100 / matches.Count(), DispatcherPriority.Background);
+
+                    if (counter % 100 == 0)
+                    {
+                        var progress = counter * 100.0 / matches.Length;
+                        ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = progress, DispatcherPriority.Background);
+                    }
                 }
+                ProgressBar.Dispatcher.Invoke(() => ProgressBar.Value = 0.0, DispatcherPriority.Background);
 
                 Task.Factory.StartNew(() => SaveWordDictionary());
                 StatusLine.Text = $"{openFileDialog.FileName} has been parsed.";
@@ -70,7 +82,7 @@ namespace NLP
 
         private bool TextIsTagged(string filePath)
         {
-            string firstLine = new StreamReader(filePath).ReadLine();
+            string firstLine = File.ReadLines(filePath).First();
             string firstWord = firstLine.Split(' ').FirstOrDefault();
             return Regex.IsMatch(firstWord, @"[a-zA-Z-—']*\/[a-zA-Z?$]*");
         }
@@ -93,56 +105,134 @@ namespace NLP
 
         private void NameTableHeader_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentSortingType == SortingType.NameAscending)
+            if (OrderAsc)
             {
-                CurrentSortingType = SortingType.NameDescending;
-                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Name).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Name);
+                OrderAsc = false;
+
             }
             else
             {
-                CurrentSortingType = SortingType.NameAscending;
-                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Name).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Name);
+                OrderAsc = true;
             }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
         }
 
         private void AmountTableHeader_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentSortingType == SortingType.AmountDescending)
+            if (OrderAsc)
             {
-                CurrentSortingType = SortingType.AmountAscending;
-                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Amount).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Amount);
+                OrderAsc = false;
+
             }
             else
             {
-                CurrentSortingType = SortingType.AmountDescending;
-                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Amount).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Amount);
+                OrderAsc = true;
             }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
         }
 
         private void TagsTableHeader_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentSortingType == SortingType.TagsAscending)
+            if (OrderAsc)
             {
-                CurrentSortingType = SortingType.TagsDescending;
-                UpdateWordDictionary(WordDictionary.OrderByDescending(x => x.Tags).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Tags);
+                OrderAsc = false;
+
             }
             else
             {
-                CurrentSortingType = SortingType.TagsAscending;
-                UpdateWordDictionary(WordDictionary.OrderBy(x => x.Tags).ToList());
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Tags);
+                OrderAsc = true;
             }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
+        }
+
+        private void CanonicalTableHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (OrderAsc)
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Canonical);
+                OrderAsc = false;
+
+            }
+            else
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Canonical);
+                OrderAsc = true;
+            }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
+        }
+
+        private void FilesTableHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (OrderAsc)
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderByDescending(x => x.Files);
+                OrderAsc = false;
+
+            }
+            else
+            {
+                UpdateWordDictionary(WordDictionary.ToList());
+                OrderFunc = s => s.OrderBy(x => x.Files);
+                OrderAsc = true;
+            }
+
+            UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
         }
 
         private void UpdateWord_Click(object sender, RoutedEventArgs e)
         {
             var modalWindow = new WordEditingModalWindow();
-            if (modalWindow.ShowDialog() == true)
+            if (modalWindow.ShowDialog() != true)
             {
-                if (modalWindow.NewWordTextBox.Text != String.Empty && modalWindow.OldWordTextBox.Text != String.Empty)
-                {
-                    db.Texts.ToList().ForEach(x => ReplaceWord(x.Path, modalWindow.OldWordTextBox.Text, modalWindow.NewWordTextBox.Text));
-                }
+                return;
             }
+
+            var newName = modalWindow.NewWordTextBox.Text;
+            var oldName = modalWindow.OldWordTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(oldName) ||string.IsNullOrWhiteSpace(newName))
+            {
+                return;
+            }
+
+            db.Texts.ToList().ForEach(x => ReplaceWord(x.Path, oldName, newName));
+
+            var oldWordDbo = db.Words.First(x => x.Name == oldName);
+            var newWordDbo = db.Words.FirstOrDefault(x => x.Name == newName);
+
+            if (newWordDbo == null)
+            {
+                oldWordDbo.Name = newName;
+                WordDictionary.First(x => x.Id == oldWordDbo.Id).Name = newName;
+            }
+            else
+            {
+                newWordDbo.MergeWith(oldWordDbo);
+                db.Words.Remove(oldWordDbo);
+                
+                WordDictionary.Remove(WordDictionary.First(x => x.Id == oldWordDbo.Id));
+            }
+
+            db.SaveChanges();
         }
 
         #endregion
@@ -173,16 +263,47 @@ namespace NLP
         }
 
         #endregion
-    }
 
-    public enum SortingType
-    {
-        NameAscending,
-        NameDescending,
-        AmountAscending,
-        AmountDescending,
-        TagsAscending,
-        TagsDescending,
-        None
+        private void ClassesInfo_Click(object sender, RoutedEventArgs e)
+        {
+            new ClassesWindow().Show();
+        }
+
+        private void WordDictionaryListView_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender is ListView view))
+            {
+                return;
+            }
+
+            var word = view.SelectedItem as Word;
+
+            if (word == null)
+            {
+                return;
+            }
+
+            var result = new EditWordWindow(db, word).ShowDialog();
+
+            if (result == true)
+            {
+                db.SaveChanges();
+            }
+        }
+
+        private void AddWord_Click(object sender, RoutedEventArgs e)
+        {
+            var word = new Word("", 0, "", "manual");
+
+            var result = new EditWordWindow(db, word).ShowDialog();
+
+            if (result == true)
+            {
+                db.Words.Add(word);
+                WordDictionary.Add(word);
+                UpdateWordDictionary(OrderFunc(WordDictionary).ToList());
+                db.SaveChanges();
+            }
+        }
     }
 }
