@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="160" Width="600">
+        Title="MainWindow" Height="180" Width="360">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Margin="25" Name="Label"></Label>
-        <TextBox Grid.Row="0" Grid.Column="1" Height="20" Name="Input"></TextBox>
-        <Button Grid.Row="0" Grid.Column="2" Margin="25" Name="OK" Click="OK_Click" FontSize="24">OK</Button>
+        <Label Grid.Row="0" Grid.Column="0" Height="28" Name="PropertyKeyLabel" HorizontalContentAlignment="Right"></Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Height="20" Margin="10" Name="InputTextBox"></TextBox>
+        <Button Grid.Row="1" Grid.Column="1" Margin="20,5" Name="OK" Click="OK_Click" FontSize="24">OK</Button>
+        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Height="26" Margin="10" Name="AnswerLabel"></Label>
     </Grid>
 </Window>
