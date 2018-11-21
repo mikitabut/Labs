@@ -16,7 +16,8 @@ namespace lab1
         public Stack<string> Targets { get; set; } = new Stack<string>();
         public Stack<Property> Context { get; set; } = new Stack<Property>();
         public int CurrentRuleIndex { get; set; } = 1;
-        public Property CurrentAnswer = new Property();
+        public Property CurrentAnswer { get; set; } = new Property();
+        public bool Flag { get; set; } = false;
 
         public MainWindow()
         {
@@ -29,7 +30,6 @@ namespace lab1
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
-            bool flag = false;
             CurrentAnswer.Value = InputTextBox.Text;
             Property currentVerifiableProperty = Rules.ElementAt(CurrentRuleIndex).Properties.First(x => x.Key == CurrentAnswer.Key);
             if (String.IsNullOrEmpty(CurrentAnswer.Value))
@@ -39,13 +39,14 @@ namespace lab1
             else if (CurrentAnswer.Value == currentVerifiableProperty.Value)
             {
                 Context.Push(CurrentAnswer);
+                Targets.Pop();
                 if (Targets.Any())
                 {
-
+                    CurrentAnswer.Key = Targets.Pop();
                 }
                 else
                 {
-                    flag = true;
+                    Flag = true;
                 }
             }
             else
@@ -53,9 +54,16 @@ namespace lab1
                 WrongRuleIndexes.Add(CurrentRuleIndex);
             }
 
-            if (flag)
+            if (Flag)
             {
-
+                if (Context.Select(x => x.Key).Contains("семейство"))
+                {
+                    AnswerLabel.Content = "Семейство - " + Context.First(x => x.Key == "семейство");
+                }
+                else
+                {
+                    AnswerLabel.Content = "Ответа нет.";
+                }
             }
         }
 
