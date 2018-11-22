@@ -12,10 +12,9 @@ namespace lab1
         public readonly string KnowledgeBasePath = Path.Combine(CurrentDirectory, "Knowledge base.txt");
 
         public List<Rule> Rules { get; set; } = new List<Rule>();
-        public List<int> WrongRuleIndexes { get; set; } = new List<int>();
         public Stack<string> Targets { get; set; } = new Stack<string>();
-        public Stack<Property> Context { get; set; } = new Stack<Property>();
-        public int CurrentRuleIndex { get; set; } = 1;
+        public string MainTarget { get; set; }
+        public List<Property> Context { get; set; } = new List<Property>();
         public Property CurrentAnswer { get; set; } = new Property();
         public bool Flag { get; set; } = false;
 
@@ -24,41 +23,53 @@ namespace lab1
             InitializeComponent();
             FillKnowledgeBase();
             Targets.Push(Rules.First().Target.Key);
-            CurrentAnswer.Key = Rules.ElementAt(CurrentRuleIndex).Properties.First().Key;
+            MainTarget = Rules.First().Target.Key;
+            CurrentAnswer.Key = Rules.First().Properties.First().Key;
+            Targets.Push(CurrentAnswer.Key);
             PropertyKeyLabel.Content = Char.ToUpper(CurrentAnswer.Key[0]) + CurrentAnswer.Key.Substring(1) + ":";
         }
 
         private void OK_Click(object sender, RoutedEventArgs e)
         {
             CurrentAnswer.Value = InputTextBox.Text;
-            Property currentVerifiableProperty = Rules.ElementAt(CurrentRuleIndex).Properties.First(x => x.Key == CurrentAnswer.Key);
             if (String.IsNullOrEmpty(CurrentAnswer.Value))
             {
-                Targets.Push(Rules.ElementAt(CurrentRuleIndex).Properties.First(x => x.Key == CurrentAnswer.Key).Key);
-            }
-            else if (CurrentAnswer.Value == currentVerifiableProperty.Value)
-            {
-                Context.Push(CurrentAnswer);
-                Targets.Pop();
-                if (Targets.Any())
-                {
-                    CurrentAnswer.Key = Targets.Pop();
-                }
-                else
-                {
-                    Flag = true;
-                }
+                Rule newRule = GetNextRule(Targets.Peek());
+                WorkWithNewRule(newRule);
             }
             else
             {
-                WrongRuleIndexes.Add(CurrentRuleIndex);
+                Context.Add(new Property(CurrentAnswer.Key, CurrentAnswer.Value));
+                Targets.Pop();
+                Rule currentRule = GetNextRule(Targets.Peek());
+                if (GetNextVerifiableProperty(currentRule) != null)
+                {
+                    Targets.Push(GetNextVerifiableProperty(currentRule).Key);
+                    CurrentAnswer.Key = GetNextVerifiableProperty(currentRule).Key;
+                    PropertyKeyLabel.Content = Char.ToUpper(CurrentAnswer.Key[0]) + CurrentAnswer.Key.Substring(1) + ":";
+                    InputTextBox.Clear();
+                }
+                else
+                {
+                    Context.Add(new Property(currentRule.Target.Key, currentRule.Target.Value));
+                    Targets.Pop();
+                    if (Targets.Any())
+                    {
+                        Rule newRule = GetNextRule(Targets.Peek());
+                        WorkWithNewRule(newRule);
+                    }
+                    else
+                    {
+                        Flag = true;
+                    }
+                }
             }
 
             if (Flag)
             {
-                if (Context.Select(x => x.Key).Contains("семейство"))
+                if (Context.Select(x => x.Key).Contains(MainTarget))
                 {
-                    AnswerLabel.Content = "Семейство - " + Context.First(x => x.Key == "семейство");
+                    AnswerLabel.Content = MainTarget + " - " + Context.First(x => x.Key == MainTarget).Value;
                 }
                 else
                 {
@@ -95,12 +106,67 @@ namespace lab1
                 Rules.Add(rule);
             }
         }
+
+        private Property GetNextVerifiableProperty(Rule rule)
+        {
+            return rule.Properties.FirstOrDefault(x => !Context.Select(y => y.Key).Contains(x.Key));
+        }
+
+        private Rule GetNextRule(string currentTarget)
+        {
+            var possibleRules = Rules.Where(x => x.Target.Key == currentTarget && !x.IsWrong);
+            foreach (var possibleRule in possibleRules)
+            {
+                foreach (var property in possibleRule.Properties)
+                {
+                    var contextPair = Context.FirstOrDefault(x => x.Key == property.Key);
+                    if(contextPair == null)
+                    {
+                        return possibleRule;
+                    }
+                    else if (contextPair.Value != property.Value)
+                    {
+                        possibleRule.IsWrong = true;
+                        break;
+                    }
+                }
+                if (!possibleRule.IsWrong)
+                {
+                    return possibleRule;
+                }
+            }
+            return null;
+        }
+
+        private void WorkWithNewRule(Rule newRule)
+        {
+            if (newRule == null)
+            {
+                Flag = true;
+            }
+            else
+            {
+                if (GetNextVerifiableProperty(newRule) == null)
+                {
+                    Context.Add(new Property(newRule.Target.Key, newRule.Target.Value));
+                    Flag = true;
+                }
+                else
+                {
+                    Targets.Push(GetNextVerifiableProperty(newRule).Key);
+                    CurrentAnswer.Key = GetNextVerifiableProperty(newRule).Key;
+                    PropertyKeyLabel.Content = Char.ToUpper(CurrentAnswer.Key[0]) + CurrentAnswer.Key.Substring(1) + ":";
+                    InputTextBox.Clear();
+                }
+            }
+        }
     }
 
     public class Rule
     {
         public List<Property> Properties { get; set; } = new List<Property>();
         public Property Target { get; set; }
+        public bool IsWrong { get; set; } = false;
 
         public Rule() { }
 
