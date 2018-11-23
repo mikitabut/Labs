@@ -1,7 +1,9 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows;
 
 namespace lab1
@@ -10,6 +12,7 @@ namespace lab1
     {
         public static readonly string CurrentDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
         public readonly string KnowledgeBasePath = Path.Combine(CurrentDirectory, "Knowledge base.txt");
+        public static Logger Logger = LogManager.GetCurrentClassLogger();
 
         public List<Rule> Rules { get; set; } = new List<Rule>();
         public Stack<string> Targets { get; set; } = new Stack<string>();
@@ -22,10 +25,27 @@ namespace lab1
         {
             InitializeComponent();
             FillKnowledgeBase();
-            Targets.Push(Rules.First().Target.Key);
             MainTarget = Rules.First().Target.Key;
+            Logger.Info("Главная цель: " + MainTarget);
+            Targets.Push(MainTarget);
             CurrentAnswer.Key = Rules.First().Properties.First().Key;
             Targets.Push(CurrentAnswer.Key);
+            Logger.Info(CurrentAnswer.Key + " помещена в стек целей");
+            PropertyKeyLabel.Content = Char.ToUpper(CurrentAnswer.Key[0]) + CurrentAnswer.Key.Substring(1) + ":";
+        }
+
+        private void ChooseTarget_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(TargetTextBox.Text))
+            {
+                MainTarget = TargetTextBox.Text;
+            }
+            Targets.Clear();
+            Targets.Push(MainTarget);
+            Logger.Info("Главная цель: " + MainTarget);
+            CurrentAnswer.Key = Rules.FirstOrDefault(x => x.Target.Key == MainTarget).Properties.First().Key;
+            Targets.Push(CurrentAnswer.Key);
+            Logger.Info(CurrentAnswer.Key + " помещена в стек целей");
             PropertyKeyLabel.Content = Char.ToUpper(CurrentAnswer.Key[0]) + CurrentAnswer.Key.Substring(1) + ":";
         }
 
@@ -40,11 +60,17 @@ namespace lab1
             else
             {
                 Context.Add(new Property(CurrentAnswer.Key, CurrentAnswer.Value));
+                Logger.Info(CurrentAnswer.Key + " - " + CurrentAnswer.Value + " : помещены в контекстный стек");
                 Targets.Pop();
                 Rule currentRule = GetNextRule(Targets.Peek());
-                if (GetNextVerifiableProperty(currentRule) != null)
+                if(currentRule == null)
+                {
+                    Flag = true;
+                }
+                else if (GetNextVerifiableProperty(currentRule) != null)
                 {
                     Targets.Push(GetNextVerifiableProperty(currentRule).Key);
+                    Logger.Info(GetNextVerifiableProperty(currentRule).Key + " : помещена в стек целей");
                     CurrentAnswer.Key = GetNextVerifiableProperty(currentRule).Key;
                     PropertyKeyLabel.Content = Char.ToUpper(CurrentAnswer.Key[0]) + CurrentAnswer.Key.Substring(1) + ":";
                     InputTextBox.Clear();
@@ -52,6 +78,7 @@ namespace lab1
                 else
                 {
                     Context.Add(new Property(currentRule.Target.Key, currentRule.Target.Value));
+                    Logger.Info(currentRule.Target.Key + " - " + currentRule.Target.Value + " : сделан вывод");
                     Targets.Pop();
                     if (Targets.Any())
                     {
@@ -80,31 +107,35 @@ namespace lab1
 
         private void FillKnowledgeBase()
         {
-            string knowledgeBase = File.ReadAllText(KnowledgeBasePath);
-            string[] rules = knowledgeBase.Split(new string[] { "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            Logger.Info("Начало разбора базы знаний");
+            string knowledgeBase = File.ReadAllText(KnowledgeBasePath, Encoding.UTF8).ToLower();
+            string[] rules = knowledgeBase.Split(new string[] { Environment.NewLine + Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             foreach (string ruleString in rules)
             {
-                string[] rows = ruleString.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] rows = ruleString.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
                 Rule rule = new Rule();
                 foreach (string row in rows)
                 {
-                    if (row.StartsWith("То"))
+                    if (row.StartsWith("то"))
                     {
                         string target = row.Substring(2).Trim();
                         string[] keyAndValue = target.Split('-');
                         rule.Target = new Property(keyAndValue[0].Trim(), keyAndValue[1].Trim());
+                        Logger.Info("Цель: " + keyAndValue[0].Trim() + " " + keyAndValue[1].Trim());
                     }
                     else
                     {
-                        string property = row.StartsWith("Если") ? row.Substring(4) : row;
-                        property = property.EndsWith("и") ? property.Substring(0, property.Length - 1).Trim() : property;
+                        string property = row.StartsWith("если") ? row.Substring(4) : row;
+                        property = property.EndsWith(" и") ? property.Substring(0, property.Length - 1).Trim() : property;
                         string[] keyAndValue = property.Split('-');
                         rule.Properties.Add(new Property(keyAndValue[0].Trim(), keyAndValue[1].Trim()));
+                        Logger.Info("Свойство: " + keyAndValue[0].Trim() + " " + keyAndValue[1].Trim());
                     }
                 }
 
                 Rules.Add(rule);
             }
+            Logger.Info("Конец разбора базы знаний");
         }
 
         private Property GetNextVerifiableProperty(Rule rule)
@@ -149,11 +180,13 @@ namespace lab1
                 if (GetNextVerifiableProperty(newRule) == null)
                 {
                     Context.Add(new Property(newRule.Target.Key, newRule.Target.Value));
+                    Logger.Info(newRule.Target.Key + " - " + newRule.Target.Value + " : помещены в контекстный стек");
                     Flag = true;
                 }
                 else
                 {
                     Targets.Push(GetNextVerifiableProperty(newRule).Key);
+                    Logger.Info(GetNextVerifiableProperty(newRule).Key + " : помещена в стек целей");
                     CurrentAnswer.Key = GetNextVerifiableProperty(newRule).Key;
                     PropertyKeyLabel.Content = Char.ToUpper(CurrentAnswer.Key[0]) + CurrentAnswer.Key.Substring(1) + ":";
                     InputTextBox.Clear();
